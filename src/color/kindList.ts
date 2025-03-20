@@ -1,0 +1,55 @@
+import { getRandomInt } from 'a-js-tools';
+import { StringKindList, FunctionKindList } from 'src/types';
+import { computedTerminalColor } from './computedTerminalColor';
+
+/**************************
+ * 可用列表
+ **************************/
+export const kindList: StringKindList & FunctionKindList = {
+  blank: '38;5;0',
+  red: '38;5;1',
+  green: '38;5;2',
+  yellow: '38;5;3',
+  blue: '38;5;4',
+  magenta: '38;5;5',
+  cyan: '38;5;6',
+  white: '38;5;7',
+  lightBlank: '38;5;8',
+  lightRed: '38;5;9',
+  lightGreen: '38;5;10',
+  lightYellow: '38;5;11',
+  lightBlue: '38;5;12',
+  lightMagenta: '38;5;13',
+  lightCyan: '38;5;14',
+  lightWhite: '38;5;15',
+  bgBlank: '48;5;0',
+  bgRed: '48;5;1',
+  bgGreen: '48;5;2',
+  bgYellow: '48;5;3',
+  bgBlue: '48;5;4',
+  bgMagenta: '48;5;5',
+  bgCyan: '48;5;6',
+  bgWhite: '48;5;7',
+  bgLightBlank: '48;5;8',
+  bgLightRed: '48;5;9',
+  bgLightGreen: '48;5;10',
+  bgLightYellow: '48;5;11',
+  bgLightBlue: '48;5;12',
+  bgLightMagenta: '48;5;13',
+  bgLightCyan: '48;5;14',
+  bgLightWhite: '48;5;15',
+  bold: '1',
+  dim: '2',
+  italic: '3',
+  underline: '4',
+  blink: '5',
+  reversed: '7',
+  hide: '8',
+  random: () => `38;5;${getRandomInt(255)}`,
+  rgb: (rgb: string | number[]) => `38;5;${computedTerminalColor(rgb, false)}`,
+  hex: (hex: string | number) => `38;5;${computedTerminalColor(hex)}`,
+  bgRandom: () => `48;5;${getRandomInt(255)}`,
+  bgRgb: (rgb: string | number[]) =>
+    `48;5;${computedTerminalColor(rgb, false)}`,
+  bgHex: (hex: string | number) => `48;5;${computedTerminalColor(hex)}`,
+};
