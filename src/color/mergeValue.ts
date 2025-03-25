@@ -1,8 +1,12 @@
-/**************************************
+/**
  *
- * 值为字符串时
+ * Appends the new style text to the style text array
  *
- **************************************/
+ * @param kinds Array of style text
+ * @param kindValue Prepare the appended style text
+ * @returns An array of style text has been appended to the new style text
+ *
+ */
 export function mergeValueIsString(kinds: string[], kindValue: string) {
   /**  当前值的数值部分  */
   const currentKindNumber = parseInt(kindValue);

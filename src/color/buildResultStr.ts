@@ -1,10 +1,14 @@
 import { t } from '../t';
 
-/**************************************
+/**
  *
- *  构建最终的文本
+ * Construct the final text
  *
- **************************************/
+ * @param str
+ * @param kinds
+ * @returns return string
+ *
+ */
 export function buildResultStr(str: string, kinds: string[]): string {
   str = str.toString();
   if (str.length === 0) {

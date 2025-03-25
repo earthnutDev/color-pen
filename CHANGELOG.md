@@ -2,6 +2,13 @@
 
 [![中文 🇨🇳](<https://img.shields.io/badge/🇨🇳-自述_%20_文件-rgb(255,12,36)>)](https://github.com/earthnutDev/color-pen/blob/main/README-zh.md) [![English 🌍](<https://img.shields.io/badge/🌍-README-rgb(0,0,0)>)](https://github.com/earthnutDev/color-pen/blob/main/README.md) ![查看 📔 日志](<https://img.shields.io/badge/👀-日_%20_志-rgb(0,125,206)?style=social>) [![查看 📔 日志](<https://img.shields.io/badge/👀-Change_%20_log-rgb(0,125,206)>)](https://github.com/earthnutDev/color-pen/blob/main/CHANGELOG-en.md)
 
+## 0.1.0 (3 月 25 2025 年)
+
+- 添加了 github actions publish 到 npm ，可以显示一个 `Provenance` 。中国人么，就喜欢折腾没用的
+- 替换了原有的中文注释
+- 优化了 `README`
+- 添加了 `husky`、`lint-staged` 自动在提交代码时执行 `prettier` 和 `eslint`
+
 ## 0.0.1 (3 月 21 2025 年)
 
 - 支持颜色外的其他的样式，如粗体、斜体、闪烁、下划线、反色等

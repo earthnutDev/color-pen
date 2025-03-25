@@ -4,12 +4,13 @@ import { kindList } from './color/kindList';
 import { FunctionKindList, Pen, StringKindList } from './types';
 import { mergeValueIsString } from './color/mergeValue';
 
-/**************************************
+/**
  *
- * @description 创建颜色
- * @param styles 样式
+ * generate `pen`
  *
- **************************************/
+ * @param kinds styles array
+ *
+ */
 export function generatePen(kinds: string[]): Pen {
   /**************************
    * 笔盒

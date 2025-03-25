@@ -15,20 +15,32 @@ export class ColorPen {
    *
    *
    **************************************/
+  /**
+   *
+   */
   valueOf(): string {
     return this.#value;
   }
 
+  /**
+   *
+   */
   constructor(t: string | number | undefined | null | bigint | boolean) {
     this.#value = new String(t).valueOf();
   }
 
+  /**
+   *
+   */
   concat(...strings: string[]): string {
     let str = this.valueOf();
     strings.forEach((currentString: string) => (str += currentString));
     return getRandomColor(str);
   }
 
+  /**
+   *
+   */
   toString(): string {
     return getRandomColor(this.#value);
   }
@@ -41,6 +53,9 @@ export class ColorPen {
    *
    * rgb    <span style="color:#565656;">rgb(86 ,86 ,86)</span>
    **************************/
+  /**
+   *
+   */
   static black(str: string): string {
     return simpleColor(0, str);
   }
@@ -53,6 +68,9 @@ export class ColorPen {
    *
    **************************/
 
+  /**
+   *
+   */
   static red(str: string) {
     return simpleColor(1, str);
   }
@@ -67,6 +85,9 @@ export class ColorPen {
    * rgb    <span style="color:#32b520;">rgb(50 ,181 ,32)</span>
    *
    **************************************/
+  /**
+   *
+   */
   static green(str: string): string {
     return simpleColor(2, str);
   }
@@ -81,6 +102,9 @@ export class ColorPen {
    *
    *
    **************************************/
+  /**
+   *
+   */
   static yellow(str: string): string {
     return simpleColor(3, str);
   }
@@ -95,6 +119,9 @@ export class ColorPen {
    * rgb    <span style="color:#400ad9;">rgb(160 ,160 ,29)</span>
    *
    **************************************/
+  /**
+   *
+   */
   static blue(str: string): string {
     return simpleColor(4, str);
   }
@@ -109,6 +136,9 @@ export class ColorPen {
    *
    *
    **************************************/
+  /**
+   *
+   */
   static magenta(str: string): string {
     return simpleColor(5, str);
   }
@@ -123,6 +153,9 @@ export class ColorPen {
    * rgb  <span style="color:#2daebb;">rgb(45 ,174 ,187)</span>
    *
    **************************************/
+  /**
+   *
+   */
   static cyan(str: string): string {
     return simpleColor(6, str);
   }
@@ -137,6 +170,9 @@ export class ColorPen {
    * rgb  <span style="color:#c1c1c1;">rgb(193 ,193 ,193)</span>
    *
    **************************************/
+  /**
+   *
+   */
   static white(str: string): string {
     return simpleColor(7, str);
   }
@@ -151,7 +187,10 @@ export class ColorPen {
    * rgb  <span style="color:#6f6f6f;">rgb(111 ,111 ,111)</span>
    *
    **************************************/
-  static lightBlack(str: string): string {
+  /**
+   *
+   */
+  static brightBlack(str: string): string {
     return simpleColor(8, str);
   }
 
@@ -166,7 +205,10 @@ export class ColorPen {
    *
    *
    **************************************/
-  static lightRed(str: string): string {
+  /**
+   *
+   */
+  static brightRed(str: string): string {
     return simpleColor(9, str);
   }
 
@@ -182,7 +224,10 @@ export class ColorPen {
    *
    **************************************/
 
-  static lightGreen(str: string): string {
+  /**
+   *
+   */
+  static brightGreen(str: string): string {
     return simpleColor(10, str);
   }
 
@@ -196,7 +241,10 @@ export class ColorPen {
    * rgb  <span style="color:#e8ec14;">rgb(232 ,236 ,20)</span>
    *
    **************************************/
-  static lightYellow(str: string): string {
+  /**
+   *
+   */
+  static brightYellow(str: string): string {
     return simpleColor(11, str);
   }
 
@@ -211,7 +259,10 @@ export class ColorPen {
    *
    *
    **************************************/
-  static lightBlue(str: string): string {
+  /**
+   *
+   */
+  static brightBlue(str: string): string {
     return simpleColor(12, str);
   }
 
@@ -226,7 +277,10 @@ export class ColorPen {
    *
    *
    **************************************/
-  static lightMagenta(str: string): string {
+  /**
+   *
+   */
+  static brightMagenta(str: string): string {
     return simpleColor(13, str);
   }
 
@@ -240,7 +294,10 @@ export class ColorPen {
    * rgb  <span style="color:#2ceeec;">rgb(44 ,238 ,236)</span>
    *
    **************************************/
-  static lightCyan(str: string): string {
+  /**
+   *
+   */
+  static brightCyan(str: string): string {
     return simpleColor(14, str);
   }
 
@@ -254,7 +311,10 @@ export class ColorPen {
    * rgb  <span style="color:#ffffff;">rgb(255 ,255 ,255)</span>
    *
    **************************************/
-  static lightWhite(str: string): string {
+  /**
+   *
+   */
+  static brightWhite(str: string): string {
     return simpleColor(15, str);
   }
 

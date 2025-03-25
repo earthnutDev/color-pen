@@ -2,11 +2,13 @@ import { generatePen } from './src/pen';
 
 export { t } from './src/t';
 
-/**************************************
+/**
  *
- * 绘制彩色的文本（应用于）
+ * Use a colored 🖌️ to write colored words to the terminal
  *
- **************************************/
+ *
+ *
+ */
 const pen = generatePen([]);
 
 export { pen, pen as colorPen };

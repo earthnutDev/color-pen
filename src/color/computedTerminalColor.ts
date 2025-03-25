@@ -1,24 +1,26 @@
 import { getRandomInt } from 'a-js-tools';
 import { isArray, isNumber, isString } from 'a-type-of-js';
 
-/**************************************
+/**
  *
- * @description 计算 256 颜色值
- * @param color 颜色值
- * @returns 256 颜色值
+ * Calculate the 256 color value
+ *
+ *
+ * @param color Color value (`string` or `number` or `number array`)
+ * @returns 256 color value (`number`)
  * @description
  *
- *  - `color` 为 `string` 时:
- *  - -  可能为 `#` 开头的 16 进制颜色值 (`isHex === true`)
- *  - -  可能为 `#` 开头的 3 位色值 (`isHex === true`)
- *  - -  可能为 `rgb` 开头的 rgb 颜色值 (`isHex === false`)
- *  - `color` 为 `number` 时:
- *  - -  可能为 `0x` 开头的 16 进制颜色值 (`isHex === true`)
- *  - `color` 为 `number[]` 时:
- *  - -  可能为 `[r, g, b]` rgb 颜色值 (`isHex === false`)
+ *  - `color`  is a  `string` type:
+ *  - -  May be a hexadecimal color value that starts with '#' (`isHex === true`)
+ *  - -  May be a 3-bit color value starting with '#' (`isHex === true`)
+ *  - -  May be an RGB color value that starts with 'rgb' (`isHex === false`)
+ *  - `color` is a  `number` type:
+ *  - -  May be an hexadecimal color value that starts with `0x` (`isHex === true`)
+ *  - `color` is a  `number[]` type:
+ *  - -  May be an RGB color value that is `[r, g, b]` (`isHex === false`)
  *
  *
- **************************************/
+ */
 export function computedTerminalColor(
   color: string | number | number[],
   isHex: boolean = true,
@@ -104,10 +106,12 @@ export function computedTerminalColor(
   return 16 + 36 * r + 6 * g + b;
 }
 
-/**************************
+/**
+ *
  * @description 计算颜色值
  * @param value 颜色值
- **************************/
+ *
+ */
 export function getColor(value: number) {
   const result = isFinite(value)
     ? Math.floor((value * 6) / 256)
