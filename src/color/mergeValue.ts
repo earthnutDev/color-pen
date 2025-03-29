@@ -1,10 +1,10 @@
 /**
  *
- * Appends the new style text to the style text array
+ * 将新样式文本追加到样式文本数组中
  *
- * @param kinds Array of style text
- * @param kindValue Prepare the appended style text
- * @returns An array of style text has been appended to the new style text
+ * @param kinds 样式文本数组
+ * @param kindValue 准备附加的样式文本
+ * @returns 样式文本数组已追加到新样式文本
  *
  */
 export function mergeValueIsString(kinds: string[], kindValue: string) {

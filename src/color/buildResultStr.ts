@@ -2,11 +2,11 @@ import { t } from '../t';
 
 /**
  *
- * Construct the final text
+ * 构建最终文本
  *
  * @param str
  * @param kinds
- * @returns return string
+ * @returns 返回一个字符串
  *
  */
 export function buildResultStr(str: string, kinds: string[]): string {

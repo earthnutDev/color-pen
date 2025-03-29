@@ -15,46 +15,46 @@ export type Pen = {
 } & { (text: string): string };
 /**
  *
- * A list of attribute calls
+ * 属性列表
  *
  */
 export type StringKindList = {
   /**
    *
-   * <span style="color:#565656;">black foreground</span>
+   * <span style="color:#565656;">黑前景色</span>
    *
-   * Hexadecimal color values    <span style="color:#565656;">#565656</span>
+   * 16 进制色值：   <span style="color:#565656;">#565656</span>
    *
-   * RGB color values    <span style="color:#565656;">rgb(86 ,86 ,86)</span>
+   * RGB 色值：    <span style="color:#565656;">rgb(86 ,86 ,86)</span>
    */
   black: string;
   /**
-   * <span style="color:#b5281d;">Red foreground</span>
+   * <span style="color:#b5281d;">红前景色</span>
    *
-   * Hexadecimal color values    <span style="color:#b5281d;">#b5281d</span>
+   * 16 进制色值：   <span style="color:#b5281d;">#b5281d</span>
    *
-   * RGB color values    <span style="color:#b5281d;">rgb(181 ,40 ,29)</span>
+   * RGB 色值：    <span style="color:#b5281d;">rgb(181 ,40 ,29)</span>
    *
    */
   red: string;
   /**
    *
    *
-   * <span style="color:#32b520;">Green foreground</span>
+   * <span style="color:#32b520;">绿前景色</span>
    *
-   * Hexadecimal color values    <span style="color:#32b520;">#32b520</span>
+   * 16 进制色值：   <span style="color:#32b520;">#32b520</span>
    *
-   * RGB color values    <span style="color:#32b520;">rgb(50 ,181 ,32)</span>
+   * RGB 色值：    <span style="color:#32b520;">rgb(50 ,181 ,32)</span>
    *
    */
   green: string;
   /**
    *
-   * <span style="color:#a0a01d;">Yellow foreground</span>
+   * <span style="color:#a0a01d;">黄前景色</span>
    *
-   * Hexadecimal color values    <span style="color:#a0a01d;">#a0a01d</span>
+   * 16 进制色值：   <span style="color:#a0a01d;">#a0a01d</span>
    *
-   * RGB color values    <span style="color:#a0a01d;">rgb(160 ,160 ,29)</span>
+   * RGB 色值：    <span style="color:#a0a01d;">rgb(160 ,160 ,29)</span>
    *
    *
    */
@@ -62,21 +62,21 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#400ad9;">Blue foreground</span>
+   * <span style="color:#400ad9;">蓝前景色</span>
    *
-   * Hexadecimal color values    <span style="color:#400ad9;">#400ad9</span>
+   * 16 进制色值：   <span style="color:#400ad9;">#400ad9</span>
    *
-   * RGB color values    <span style="color:#400ad9;">rgb(160 ,160 ,29)</span>
+   * RGB 色值：    <span style="color:#400ad9;">rgb(160 ,160 ,29)</span>
    *
    */
   blue: string;
   /**
    *
-   * <span style="color:#c918c9;">Magenta foreground</span>
+   * <span style="color:#c918c9;">杨红前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#c918c9;">#c918c9</span>
+   * 16 进制色值： <span style="color:#c918c9;">#c918c9</span>
    *
-   * RGB color values  <span style="color:#c918c9;">rgb(201 ,24 ,201)</span>
+   * RGB 色值：  <span style="color:#c918c9;">rgb(201 ,24 ,201)</span>
    *
    *
    */
@@ -84,55 +84,55 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#2daebb;">Cyan foreground</span>
+   * <span style="color:#2daebb;">青前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#2daebb;">#2daebb</span>
+   * 16 进制色值： <span style="color:#2daebb;">#2daebb</span>
    *
-   * RGB color values  <span style="color:#2daebb;">rgb(45 ,174 ,187)</span>
+   * RGB 色值：  <span style="color:#2daebb;">rgb(45 ,174 ,187)</span>
    *
    */
   cyan: string;
   /**
    *
    *
-   * <span style="color:#c1c1c1;">White foreground</span>
+   * <span style="color:#c1c1c1;">白前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#c1c1c1;">#c1c1c1</span>
+   * 16 进制色值： <span style="color:#c1c1c1;">#c1c1c1</span>
    *
-   * RGB color values  <span style="color:#c1c1c1;">rgb(193 ,193 ,193)</span>
+   * RGB 色值：  <span style="color:#c1c1c1;">rgb(193 ,193 ,193)</span>
    *
    */
   white: string;
   /**
    *
    *
-   * <span style="color:#6f6f6f;">Bright black foreground</span>
+   * <span style="color:#6f6f6f;">高亮黑前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#6f6f6f;">#6f6f6f</span>
+   * 16 进制色值： <span style="color:#6f6f6f;">#6f6f6f</span>
    *
-   * RGB color values  <span style="color:#6f6f6f;">rgb(111 ,111 ,111)</span>
+   * RGB 色值：  <span style="color:#6f6f6f;">rgb(111 ,111 ,111)</span>
    *
    */
   brightBlack: string;
   /**
    *
    *
-   * <span style="color:#fc2119;">Bright red foreground</span>
+   * <span style="color:#fc2119;">高亮红前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#fc2119;">#fc2119</span>
+   * 16 进制色值： <span style="color:#fc2119;">#fc2119</span>
    *
-   * RGB color values  <span style="color:#fc2119;">rgb(252 ,33 ,25)</span>
+   * RGB 色值：  <span style="color:#fc2119;">rgb(252 ,33 ,25)</span>
    *
    *
    */
   brightRed: string;
   /**
    *
-   * <span style="color:#2fe81a;">Bright green foreground</span>
+   * <span style="color:#2fe81a;">高亮绿前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#2fe81a;">#2fe81a</span>
+   * 16 进制色值： <span style="color:#2fe81a;">#2fe81a</span>
    *
-   * RGB color values  <span style="color:#2fe81a;">rgb(47 ,232 ,26)</span>
+   * RGB 色值：  <span style="color:#2fe81a;">rgb(47 ,232 ,26)</span>
    *
    *
    *
@@ -141,22 +141,22 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#e8ec14;">Bright yellow foreground</span>
+   * <span style="color:#e8ec14;">高亮黄前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#e8ec14;">#e8ec14</span>
+   * 16 进制色值： <span style="color:#e8ec14;">#e8ec14</span>
    *
-   * RGB color values  <span style="color:#e8ec14;">rgb(232 ,236 ,20)</span>
+   * RGB 色值：  <span style="color:#e8ec14;">rgb(232 ,236 ,20)</span>
    *
    */
   brightYellow: string;
   /**
    *
    *
-   * <span style="color:#4a03fe;">Bright blue foreground</span>
+   * <span style="color:#4a03fe;">高亮蓝前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#4a03fe;">#4a03fe</span>
+   * 16 进制色值： <span style="color:#4a03fe;">#4a03fe</span>
    *
-   * RGB color values  <span style="color:#4a03fe;">rgb(74 ,3 ,254)</span>
+   * RGB 色值：  <span style="color:#4a03fe;">rgb(74 ,3 ,254)</span>
    *
    *
    */
@@ -164,11 +164,11 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#fb00fa;">Bright magenta foreground</span>
+   * <span style="color:#fb00fa;">高亮杨红前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#fb00fa;">#fb00fa</span>
+   * 16 进制色值： <span style="color:#fb00fa;">#fb00fa</span>
    *
-   * RGB color values  <span style="color:#fb00fa;">rgb(251 ,0 ,253)</span>
+   * RGB 色值：  <span style="color:#fb00fa;">rgb(251 ,0 ,253)</span>
    *
    *
    */
@@ -176,61 +176,61 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#2ceeec;">Bright cyan foreground</span>
+   * <span style="color:#2ceeec;">高亮青前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#2ceeec;">#2ceeec</span>
+   * 16 进制色值： <span style="color:#2ceeec;">#2ceeec</span>
    *
-   * RGB color values  <span style="color:#2ceeec;">rgb(44 ,238 ,236)</span>
+   * RGB 色值：  <span style="color:#2ceeec;">rgb(44 ,238 ,236)</span>
    *
    */
   brightCyan: string;
   /**
    *
    *
-   * <span style="color:#ffffff;">Bright cyan foreground</span>
+   * <span style="color:#ffffff;">高亮白前景色</span>
    *
-   * Hexadecimal color values  <span style="color:#ffffff;">#ffffff</span>
+   * 16 进制色值： <span style="color:#ffffff;">#ffffff</span>
    *
-   * RGB color values  <span style="color:#ffffff;">rgb(255 ,255 ,255)</span>
+   * RGB 色值：  <span style="color:#ffffff;">rgb(255 ,255 ,255)</span>
    *
    */
   brightWhite: string;
   /**
    *
-   * <span style="color:#565656;">Bright black background</span>
+   * <span style="color:#565656;">黑背景色</span>
    *
-   * Hexadecimal color values    <span style="color:#565656;">#565656</span>
+   * 16 进制色值：   <span style="color:#565656;">#565656</span>
    *
-   * RGB color values    <span style="color:#565656;">rgb(86 ,86 ,86)</span>
+   * RGB 色值：    <span style="color:#565656;">rgb(86 ,86 ,86)</span>
    */
   bgBlack: string;
   /**
-   * <span style="color:#b5281d;">Bright red background</span>
+   * <span style="color:#b5281d;">红背景色</span>
    *
-   * Hexadecimal color values    <span style="color:#b5281d;">#b5281d</span>
+   * 16 进制色值：   <span style="color:#b5281d;">#b5281d</span>
    *
-   * RGB color values    <span style="color:#b5281d;">rgb(181 ,40 ,29)</span>
+   * RGB 色值：    <span style="color:#b5281d;">rgb(181 ,40 ,29)</span>
    *
    */
   bgRed: string;
   /**
    *
    *
-   * <span style="color:#32b520;">Bright green background</span>
+   * <span style="color:#32b520;">绿背景色</span>
    *
-   * Hexadecimal color values    <span style="color:#32b520;">#32b520</span>
+   * 16 进制色值：   <span style="color:#32b520;">#32b520</span>
    *
-   * RGB color values    <span style="color:#32b520;">rgb(50 ,181 ,32)</span>
+   * RGB 色值：    <span style="color:#32b520;">rgb(50 ,181 ,32)</span>
    *
    */
   bgGreen: string;
   /**
    *
-   * <span style="color:#a0a01d;">Bright yellow background</span>
+   * <span style="color:#a0a01d;">黄背景色</span>
    *
-   * Hexadecimal color values    <span style="color:#a0a01d;">#a0a01d</span>
+   * 16 进制色值：   <span style="color:#a0a01d;">#a0a01d</span>
    *
-   * RGB color values    <span style="color:#a0a01d;">rgb(160 ,160 ,29)</span>
+   * RGB 色值：    <span style="color:#a0a01d;">rgb(160 ,160 ,29)</span>
    *
    *
    */
@@ -238,21 +238,21 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#400ad9;">Bright blue background</span>
+   * <span style="color:#400ad9;">蓝背景色</span>
    *
-   * Hexadecimal color values    <span style="color:#400ad9;">#400ad9</span>
+   * 16 进制色值：   <span style="color:#400ad9;">#400ad9</span>
    *
-   * RGB color values    <span style="color:#400ad9;">rgb(160 ,160 ,29)</span>
+   * RGB 色值：    <span style="color:#400ad9;">rgb(160 ,160 ,29)</span>
    *
    */
   bgBlue: string;
   /**
    *
-   * <span style="color:#c918c9;">Bright magenta background</span>
+   * <span style="color:#c918c9;">杨红背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#c918c9;">#c918c9</span>
+   * 16 进制色值： <span style="color:#c918c9;">#c918c9</span>
    *
-   * RGB color values  <span style="color:#c918c9;">rgb(201 ,24 ,201)</span>
+   * RGB 色值：  <span style="color:#c918c9;">rgb(201 ,24 ,201)</span>
    *
    *
    */
@@ -260,55 +260,55 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#2daebb;">Bright cyan background</span>
+   * <span style="color:#2daebb;">高亮青背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#2daebb;">#2daebb</span>
+   * 16 进制色值： <span style="color:#2daebb;">#2daebb</span>
    *
-   * RGB color values  <span style="color:#2daebb;">rgb(45 ,174 ,187)</span>
+   * RGB 色值：  <span style="color:#2daebb;">rgb(45 ,174 ,187)</span>
    *
    */
   bgCyan: string;
   /**
    *
    *
-   * <span style="color:#c1c1c1;">Bright white background</span>
+   * <span style="color:#c1c1c1;">白背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#c1c1c1;">#c1c1c1</span>
+   * 16 进制色值： <span style="color:#c1c1c1;">#c1c1c1</span>
    *
-   * RGB color values  <span style="color:#c1c1c1;">rgb(193 ,193 ,193)</span>
+   * RGB 色值：  <span style="color:#c1c1c1;">rgb(193 ,193 ,193)</span>
    *
    */
   bgWhite: string;
   /**
    *
    *
-   * <span style="color:#6f6f6f;">Bright black background</span>
+   * <span style="color:#6f6f6f;">高亮黑背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#6f6f6f;">#6f6f6f</span>
+   * 16 进制色值： <span style="color:#6f6f6f;">#6f6f6f</span>
    *
-   * RGB color values  <span style="color:#6f6f6f;">rgb(111 ,111 ,111)</span>
+   * RGB 色值：  <span style="color:#6f6f6f;">rgb(111 ,111 ,111)</span>
    *
    */
   bgBrightBlack: string;
   /**
    *
    *
-   * <span style="color:#fc2119;">Bright red background</span>
+   * <span style="color:#fc2119;">高亮红背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#fc2119;">#fc2119</span>
+   * 16 进制色值： <span style="color:#fc2119;">#fc2119</span>
    *
-   * RGB color values  <span style="color:#fc2119;">rgb(252 ,33 ,25)</span>
+   * RGB 色值：  <span style="color:#fc2119;">rgb(252 ,33 ,25)</span>
    *
    *
    */
   bgBrightRed: string;
   /**
    *
-   * <span style="color:#2fe81a;">Bright green background</span>
+   * <span style="color:#2fe81a;">高亮绿背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#2fe81a;">#2fe81a</span>
+   * 16 进制色值： <span style="color:#2fe81a;">#2fe81a</span>
    *
-   * RGB color values  <span style="color:#2fe81a;">rgb(47 ,232 ,26)</span>
+   * RGB 色值：  <span style="color:#2fe81a;">rgb(47 ,232 ,26)</span>
    *
    *
    *
@@ -317,22 +317,22 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#e8ec14;">Bright yellow background</span>
+   * <span style="color:#e8ec14;">高亮黄背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#e8ec14;">#e8ec14</span>
+   * 16 进制色值： <span style="color:#e8ec14;">#e8ec14</span>
    *
-   * RGB color values  <span style="color:#e8ec14;">rgb(232 ,236 ,20)</span>
+   * RGB 色值：  <span style="color:#e8ec14;">rgb(232 ,236 ,20)</span>
    *
    */
   bgBrightYellow: string;
   /**
    *
    *
-   * <span style="color:#4a03fe;">Bright blue background</span>
+   * <span style="color:#4a03fe;">高亮蓝背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#4a03fe;">#4a03fe</span>
+   * 16 进制色值： <span style="color:#4a03fe;">#4a03fe</span>
    *
-   * RGB color values  <span style="color:#4a03fe;">rgb(74 ,3 ,254)</span>
+   * RGB 色值：  <span style="color:#4a03fe;">rgb(74 ,3 ,254)</span>
    *
    *
    */
@@ -340,11 +340,11 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#fb00fa;">Bright magenta background</span>
+   * <span style="color:#fb00fa;">高亮杨红背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#fb00fa;">#fb00fa</span>
+   * 16 进制色值： <span style="color:#fb00fa;">#fb00fa</span>
    *
-   * RGB color values  <span style="color:#fb00fa;">rgb(251 ,0 ,253)</span>
+   * RGB 色值：  <span style="color:#fb00fa;">rgb(251 ,0 ,253)</span>
    *
    *
    */
@@ -352,38 +352,44 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#2ceeec;">Bright cyan background</span>
+   * <span style="color:#2ceeec;">高亮青背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#2ceeec;">#2ceeec</span>
+   * 16 进制色值： <span style="color:#2ceeec;">#2ceeec</span>
    *
-   * RGB color values  <span style="color:#2ceeec;">rgb(44 ,238 ,236)</span>
+   * RGB 色值：  <span style="color:#2ceeec;">rgb(44 ,238 ,236)</span>
    *
    */
   bgBrightCyan: string;
   /**
    *
    *
-   * <span style="color:#ffffff;">Bright white background</span>
+   * <span style="color:#ffffff;">高亮白背景色</span>
    *
-   * Hexadecimal color values  <span style="color:#ffffff;">#ffffff</span>
+   * 16 进制色值： <span style="color:#ffffff;">#ffffff</span>
    *
-   * RGB color values  <span style="color:#ffffff;">rgb(255 ,255 ,255)</span>
+   * RGB 色值：  <span style="color:#ffffff;">rgb(255 ,255 ,255)</span>
    *
    */
   bgBrightWhite: string;
-  /**  Bold text */
+  /**  粗文本 */
   bold: string;
-  /**   Faint text */
+  /**   细文本 */
   dim: string;
-  /**  Italic text  */
+  /**  斜体文本  */
   italic: string;
-  /** Underlined text */
+  /** 带下划线的文本 */
   underline: string;
-  /**  Blink text */
+  /**
+   *
+   * 一闪一闪亮晶晶的文本
+   *
+   * 但是在某些终端上可能无效，譬如 vsCode 内嵌的终端
+   *
+   * */
   blink: string;
-  /**  Reversed text and background  */
+  /**  反转前景色和背景色  */
   reversed: string;
-  /**  Hide text  */
+  /**  隐藏文本，用于创建等宽文本很爽  */
   hide: string;
 };
 /**
@@ -394,20 +400,19 @@ export type StringKindList = {
  * - `random`、`bgRandom` 既不是严格属性掉用也不是严格的函数式调用
  */
 export type FunctionKindList = {
-  /**  Set the foreground with RGB color values */
+  /**  使用 RGB 设置前景色 */
   rgb(rgb: string | [number, number, number]): string;
-  /**  Set the foreground color by passing in hexadecimal  */
+  /**  使用 16 进制设置前景色   */
   hex(hex: string | number): string;
-  /**  Set the background with RGB color values  */
+  /**  使用 RGB 设置背景色    */
   bgRgb(rgb: string | [number, number, number]): string;
-  /**   Set the background color via hexadecimal  */
+  /**   使用 16 进制设置背景色  */
   bgHex(hex: string | number): string;
-  /**  Random foreground color  */
+  /**  随机前景色  */
   random(): string;
-  /**  Random background color  */
+  /**  随机背景色  */
   bgRandom(): string;
 };
 
 /**  所有可配置项  */
-/**  All configurables  */
 export type KindListKey = keyof FunctionKindList | keyof StringKindList;

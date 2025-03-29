@@ -1,28 +1,27 @@
 {
   "name": "color-pen",
   "type": "module",
-  "version": "0.1.0",
+  "private": true,
+  "version": "0.1.1",
   "main": "cjs/index.cjs",
   "typings": "types/index.d.ts",
-  "description": "a color pen for supports colors terminal",
+  "description": "一个用于终端的画笔。有其他需要的出门右拐直接 npm install --save chalk 即可。",
   "scripts": {
     "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
     "clean:package": "node scripts/clean-package-json.js",
     "build": "npx ixxx rm dist && npm run b && npm run clean:package",
-    "push:version": "bash -c 'git add . && git commit -m \"version: $1 $(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git tag -a \"v$1\" -m \"$(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git push origin main --tags' -- ",
-    "push:submit": "bash -c 'git add . && git commit -m \"submit: $(date +\"%Y-%m-%d %H:%M:%S\")${1:+ }$1\" && git push origin main' -- ",
-    "diff": "npx ixxx pkg diff",
+    "push:version": "gvv",
+    "push:submit": "gvv",
     "eslint": "npx ixxx cls && eslint src",
-    "beautify": "npm run prettier",
+    "beautify": "npm run eslint && npm run prettier",
     "prettier": "npx ixxx cls && prettier . --write",
     "prepare": "husky",
-    "postinstall": "npm run prepare",
-    "test": "jest --coverage",
+    "test": "npm run beautify  && jest --coverage",
     "report": "cat ./coverage/lcov.info | coveralls",
     "coverage": "codecov",
     "preview": "node example/index.js",
-    "versionPatch": "npx ixxx up -n",
-    "pub": "npm run build && cd dist && npm publish --access public && cd ../"
+    "vjj": "vjj",
+    "prepublishOnly": "pjj"
   },
   "files": [
     "mjs",
@@ -59,8 +58,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "a-js-tools": ">=0.1.1 <1.0.0",
-    "a-type-of-js": ">=0.1.5 <1.0.0"
+    "a-js-tools": ">=0.1.3 <1.0.0",
+    "a-type-of-js": ">=0.1.6 <1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
@@ -83,6 +82,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-junit": "^16.0.0",
     "lint-staged": "^15.5.0",
+    "pjj": "^0.1.0",
     "prettier": "^3.5.3",
     "rollup": "^4.36.0",
     "rollup-plugin-cleanup": "^3.2.1",

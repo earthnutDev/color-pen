@@ -3,21 +3,21 @@ import { isArray, isNumber, isString } from 'a-type-of-js';
 
 /**
  *
- * Calculate the 256 color value
+ * 计算 256 色值
  *
  *
- * @param color Color value (`string` or `number` or `number array`)
- * @returns 256 color value (`number`)
+ * @param color 色值
+ * @returns 256 色值
  * @description
  *
- *  - `color`  is a  `string` type:
- *  - -  May be a hexadecimal color value that starts with '#' (`isHex === true`)
- *  - -  May be a 3-bit color value starting with '#' (`isHex === true`)
- *  - -  May be an RGB color value that starts with 'rgb' (`isHex === false`)
- *  - `color` is a  `number` type:
- *  - -  May be an hexadecimal color value that starts with `0x` (`isHex === true`)
- *  - `color` is a  `number[]` type:
- *  - -  May be an RGB color value that is `[r, g, b]` (`isHex === false`)
+ * - 'color' 是 'string' 类型：
+ * - - 可以是以 '#' 开头的十六进制颜色值 （'isHex === true'）
+ * - - 可以是以 '#' 开头的 3 位颜色值 （'isHex === true'）
+ * - - 可能是以 'rgb' 开头的 RGB 颜色值 （'isHex === false'）
+ * - 'color' 是 'number' 类型：
+ * - - 可以是以 '0x' 开头的十六进制颜色值 （'isHex === true'）
+ * - 'color' 是 'number[]' 类型：
+ * - - 可能是 RGB 颜色值 '[r， g， b]' （'isHex === false'）
  *
  *
  */

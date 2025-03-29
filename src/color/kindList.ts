@@ -4,7 +4,7 @@ import { computedTerminalColor } from './computedTerminalColor';
 
 /**
  *
- * Available lists
+ * 序列值
  *
  */
 export const kindList: StringKindList & FunctionKindList = {
@@ -54,4 +54,7 @@ export const kindList: StringKindList & FunctionKindList = {
   bgRgb: (rgb: string | number[]) =>
     `48;5;${computedTerminalColor(rgb, false)}`,
   bgHex: (hex: string | number) => `48;5;${computedTerminalColor(hex)}`,
-};
+} as const;
+
+/**  冻结  */
+Object.freeze(kindList);

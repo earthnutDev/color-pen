@@ -6,9 +6,9 @@ import { mergeValueIsString } from './color/mergeValue';
 
 /**
  *
- * generate `pen`
+ * 生成 `pen`
  *
- * @param kinds styles array
+ * @param kinds 样式数组
  *
  */
 export function generatePen(kinds: string[]): Pen {

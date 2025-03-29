@@ -4,8 +4,7 @@ export { t } from './src/t';
 
 /**
  *
- * Use a colored 🖌️ to write colored words to the terminal
- *
+ * 使用彩色 🖌️ 在终端上 ✍️ 彩色字
  *
  *
  */
