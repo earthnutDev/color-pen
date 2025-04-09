@@ -1,4 +1,4 @@
-import pen from '../dist/mjs/index.mjs';
+import pen from '..';
 
 const log = console.log;
 
@@ -21,7 +21,7 @@ log(redBoldPen('红色粗体文本展示'));
 
 log(pen.random('任意色值的文本'));
 
-log(pen.random('任意色值的文本', 'bold'));
+log(pen.random('任意色值的文本'));
 
 log(redBoldYellowBgPen('红色粗体黄色背景的文本'));
 
