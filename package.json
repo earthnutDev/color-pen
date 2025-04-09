@@ -2,7 +2,7 @@
   "name": "color-pen",
   "type": "module",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "cjs/index.cjs",
   "typings": "types/index.d.ts",
   "description": "一个用于终端的彩 🖊️",

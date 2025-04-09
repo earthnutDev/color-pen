@@ -1,14 +1,6 @@
 # 🖊️
 
-[![version](<https://img.shields.io/npm/v/color-pen.svg?logo=npm&logoColor=rgb(0,0,0)&label=版本号&labelColor=rgb(73,73,228)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/color-pen) [![NPM Last Update](<https://img.shields.io/npm/last-update/color-pen?logo=npm&label=版本最后更新&labelColor=rgb(255,36,63)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/color-pen) [![📦 size](<https://img.shields.io/bundlephobia/minzip/color-pen.svg?logo=npm&label=压缩包大小&labelColor=rgb(201,158,140)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/color-pen) [![downloads](<https://img.shields.io/npm/dm/color-pen.svg?logo=npm&logoColor=rgb(0,0,0)&label=月下载量&labelColor=rgb(194,112,210)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/color-pen) [![downloads](<https://img.shields.io/npm/dt/color-pen.svg?logo=npm&label=总下载量&labelColor=rgb(107,187,124)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/color-pen)
-
-[![last commit](<https://img.shields.io/github/last-commit/earthnutDev/color-pen.svg?logo=github&logoColor=rgb(0,0,0)&label=最后推码&labelColor=rgb(255,165,0)&color=rgb(0,0,0)>)](https://github.com/earthnutDev/color-pen) [![GitHub commit activity](<https://img.shields.io/github/commit-activity/y/earthnutDev/color-pen.svg?logo=github&label=推码数&labelColor=rgb(128,0,128)&color=rgb(0,0,0)>)](https://github.com/earthnutDev/color-pen) [![Coverage Status](<https://img.shields.io/coverallsCoverage/github/earthnutDev/color-pen?logo=coveralls&label=coveralls&labelColor=rgb(12, 244, 39)&color=rgb(0,0,0)>)](https://coveralls.io/github/earthnutDev/color-pen?branch=main) [![codecov](<https://img.shields.io/codecov/github/earthnutDev/color-pen/main/?logo=codecov&label=codecov&labelColor=rgb(7, 245, 245)&color=rgb(0,0,0)>)](https://codecov.io/gh/earthnutDev/color-pen)
-
----
-
-[![查看 📔 日志](<https://img.shields.io/badge/👀-日_%20_志-rgb(0,125,206)>)](https://github.com/earthnutDev/color-pen/blob/main/CHANGELOG.md) [![bug 🙋‍♂️ 提交](<https://img.shields.io/badge/☣️-bug_%20_提交-rgb(255,0,63)>)](https://github.com/earthnutDev/color-pen/issues)
-
----
+[![version](<https://img.shields.io/npm/v/color-pen.svg?logo=npm&logoColor=rgb(0,0,0)&label=版本号&labelColor=rgb(73,73,228)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/color-pen) [![Coverage Status](<https://img.shields.io/coverallsCoverage/github/earthnutDev/color-pen?logo=coveralls&label=coveralls&labelColor=rgb(12, 244, 39)&color=rgb(0,0,0)>)](https://coveralls.io/github/earthnutDev/color-pen?branch=main) [![codecov](<https://img.shields.io/codecov/c/github/earthnutDev/color-pen/main?logo=codecov&label=codecov&labelColor=rgb(7, 245, 245)&color=rgb(0,0,0)>)](https://codecov.io/gh/earthnutDev/color-pen) [![issues 提交](<https://img.shields.io/badge/issues-提交-rgb(255,0,63)?logo=github>)](https://github.com/earthnutDev/color-pen/issues)
 
 ## 颜色模块
 
