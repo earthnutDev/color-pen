@@ -32,3 +32,19 @@ log(
 );
 
 log(italicPen('斜体文本'));
+console.log(pen.hex(0xff0000)('红色文本'));
+console.log(pen.bgHex(0xff0000)('红色背景'));
+
+console.log(pen.rgb(255, 0, 0)('红色文本'));
+console.log(pen.bgRgb(255, 0, 0)('红色背景'));
+
+console.log(pen.color(255, 0, 0)('红色文本'));
+
+console.log(pen.bgColor(255, 0, 0)('红色背景'));
+console.log(pen.color('rgb(255, 0, 0)')('rgb(255, 0, 0) 红色文本'));
+
+console.log(pen.bgColor('rgb(255, 0, 0)')('rgb(255, 0, 0) 红色背景'));
+
+console.log(pen.color(0xff0000)('0xff0000 红色文本'));
+
+console.log(pen.bgColor(0xff0000)('0xff0000 红色背景'));

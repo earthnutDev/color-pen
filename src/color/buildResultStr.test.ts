@@ -13,6 +13,26 @@ describe('buildResultStr', () => {
     expect(buildResultStr('Hello', ['31'])).toBe('\x1b[31mHello\x1b[0m');
   });
 
+  it('should wrap the string with ANSI sequences if kinds is not empty', () => {
+    expect(buildResultStr('Hello\n', ['31'])).toBe('\x1b[31mHello\x1b[0m\n');
+  });
+  it('should wrap the string with ANSI sequences if kinds is not empty', () => {
+    expect(buildResultStr('Hello\n', ['31'])).not.toBe(
+      '\x1b[31mHello\n\x1b[0m',
+    );
+  });
+
+  it('should wrap the string with ANSI sequences if kinds is not empty', () => {
+    expect(buildResultStr('Hello\r\n', ['31'])).toBe(
+      '\x1b[31mHello\x1b[0m\r\n',
+    );
+  });
+  it('should wrap the string with ANSI sequences if kinds is not empty', () => {
+    expect(buildResultStr('Hello\r\n', ['31'])).not.toBe(
+      '\x1b[31mHello\r\n\x1b[0m',
+    );
+  });
+
   it('should handle strings with existing ANSI sequences', () => {
     expect(buildResultStr('\x1b[32mGreen\x1b[0m', ['31'])).toBe(
       '\x1b[32mGreen\x1b[0m',

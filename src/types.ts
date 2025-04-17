@@ -1,5 +1,73 @@
 /**
  *
+ * ###  使用 RGB 设置背景色
+ *
+ * @param r 构建的 RGB 颜色的 r 值或 RGB 文本值
+ * - `r`  为 `string` 时，为 `rgb(r ,g ,b)` 格式，且第二参数和第三参数应为 `undefined`
+ * - `r` 为 `number` 时，搭配 `g` 和 `b` 构建三色
+ * @param g 当第一参数为 string 时，该值应为 `undefined`；第一参数为数值时，该值表示 `g` 值
+ * @param b 当第一参数为 string 时，该值应为 `undefined`；第一参数为数值时，该值表示 `b` 值
+ * @returns 返回 ANSI 颜色文本
+ * @example
+ * ```ts
+ * import { pen } from 'color-pen';
+ *
+ * const redPen = pen.bgRgb(255, 0, 0); // 构建红色背景
+ * const bluePen = pen.bgRgb('rgb(0, 0, 255)'); // 构建蓝色背景
+ *
+ * // 第二参数在第一参数为字符串时不为 undefined 将抛出 `TypeError`
+ * pen.bgRgb('rgb(0, 0, 255)', 1);
+ * // 三个参数中有值超出范围则会抛出 `TypeError`
+ * pen.bgRgb(1,2, 256); // => TypeError
+ * pen.bgRgb('rgb(0, 0, 258)');  // => TypeError
+ * pen.bgRgb(-100,2, 125);  // => TypeError
+ * pen.bgRgb('rgb(-100, 0, 258)');  // => TypeError
+ * // 三个参数中有浮点数则抛出 `TypeError`
+ * pen.bgRgb('rgb(0, 0 ,125.5)'); // => TypeError
+ *
+ * ```
+ */
+export type RGBFunctionWithThreeNumbers = (
+  r: number,
+  g: number,
+  b: number,
+) => Pen;
+
+export type RGBFunctionWithOnlyString = (rgb: string) => Pen;
+/**
+ *
+ * ###  使用 RGB 设置背景色
+ *
+ * @param r 构建的 RGB 颜色的 r 值或 RGB 文本值
+ * - `r`  为 `string` 时，为 `rgb(r ,g ,b)` 格式，且第二参数和第三参数应为 `undefined`
+ * - `r` 为 `number` 时，搭配 `g` 和 `b` 构建三色
+ * @param g 当第一参数为 string 时，该值应为 `undefined`；第一参数为数值时，该值表示 `g` 值
+ * @param b 当第一参数为 string 时，该值应为 `undefined`；第一参数为数值时，该值表示 `b` 值
+ * @returns 返回 ANSI 颜色文本
+ * @example
+ * ```ts
+ * import { pen } from 'color-pen';
+ *
+ * const redPen = pen.bgRgb(255, 0, 0); // 构建红色背景
+ * const bluePen = pen.bgRgb('rgb(0, 0, 255)'); // 构建蓝色背景
+ *
+ * // 第二参数在第一参数为字符串时不为 undefined 将抛出 `TypeError`
+ * pen.bgRgb('rgb(0, 0, 255)', 1);
+ * // 三个参数中有值超出范围则会抛出 `TypeError`
+ * pen.bgRgb(1,2, 256); // => TypeError
+ * pen.bgRgb('rgb(0, 0, 258)');  // => TypeError
+ * pen.bgRgb(-100,2, 125);  // => TypeError
+ * pen.bgRgb('rgb(-100, 0, 258)');  // => TypeError
+ * // 三个参数中有浮点数则抛出 `TypeError`
+ * pen.bgRgb('rgb(0, 0 ,125.5)'); // => TypeError
+ *
+ * ```
+ */
+export type RGBFunction = RGBFunctionWithThreeNumbers &
+  RGBFunctionWithOnlyString;
+
+/**
+ *
  * 🖌️
  *
  */
@@ -8,10 +76,13 @@ export type Pen = {
   [key in keyof StringKindList]: Pen;
 } & {
   [key in keyof FunctionKindList]: key extends 'rgb' | 'bgRgb'
-    ? ((r: number, g: number, b: number) => Pen) & ((rgb: string) => Pen)
+    ? RGBFunction
     : key extends 'hex' | 'bgHex'
       ? (hex: number | string) => Pen
-      : Pen;
+      : key extends 'color' | 'bgColor'
+        ? ((r: number, g: number, b: number) => Pen) &
+            ((rgb: string | number) => Pen)
+        : Pen;
 } & { (text: string): string };
 /**
  *
@@ -399,20 +470,66 @@ export type StringKindList = {
  *
  * - `random`、`bgRandom` 既不是严格属性掉用也不是严格的函数式调用
  */
-export type FunctionKindList = {
-  /**  使用 RGB 设置前景色 */
-  rgb(rgb: string | [number, number, number]): string;
-  /**  使用 16 进制设置前景色   */
+export interface FunctionKindList {
+  /**
+   * 使用 RGB 设置前景色
+   *
+   */
+  rgb(r: string | number, g?: number, b?: number): string;
+  /**
+   *   使用 16 进制设置前景色
+   */
   hex(hex: string | number): string;
-  /**  使用 RGB 设置背景色    */
-  bgRgb(rgb: string | [number, number, number]): string;
+  /**
+   *  使用 RGB 或 hex 设置前景色
+   *
+   */
+  color(r: string | number, g?: number, b?: number): string;
+
+  /**
+   *
+   * ###  使用 RGB 设置背景色
+   *
+   * @param r 构建的 RGB 颜色的 r 值或 RGB 文本值
+   * - `r`  为 `string` 时，为 `rgb(r ,g ,b)` 格式，且第二参数和第三参数应为 `undefined`
+   * - `r` 为 `number` 时，搭配 `g` 和 `b` 构建三色
+   * @param g 当第一参数为 string 时，该值应为 `undefined`；第一参数为数值时，该值表示 `g` 值
+   * @param b 当第一参数为 string 时，该值应为 `undefined`；第一参数为数值时，该值表示 `b` 值
+   * @returns 返回 ANSI 颜色文本
+   * @example
+   * ```ts
+   * import { pen } from 'color-pen';
+   *
+   * const redPen = pen.bgRgb(255, 0, 0); // 构建红色背景
+   * const bluePen = pen.bgRgb('rgb(0, 0, 255)'); // 构建蓝色背景
+   *
+   * // 第二参数在第一参数为字符串时不为 undefined 将抛出 `TypeError`
+   * pen.bgRgb('rgb(0, 0, 255)', 1);
+   * // 三个参数中有值超出范围则会抛出 `TypeError`
+   * pen.bgRgb(1,2, 256); // => TypeError
+   * pen.bgRgb('rgb(0, 0, 258)');  // => TypeError
+   * pen.bgRgb(-100,2, 125);  // => TypeError
+   * pen.bgRgb('rgb(-100, 0, 258)');  // => TypeError
+   * // 三个参数中有浮点数则抛出 `TypeError`
+   * pen.bgRgb('rgb(0, 0 ,125.5)'); // => TypeError
+   *
+   * ```
+   */
+  bgRgb(r: number, g: number, b: number): string;
+  bgRgb(rgb: string): string;
   /**   使用 16 进制设置背景色  */
   bgHex(hex: string | number): string;
+  /**
+   * 使用 RGB 或 hex 设置背景色
+   *
+   *
+   */
+  bgColor(r: string | number, g?: number, b?: number): string;
   /**  随机前景色  */
   random(): string;
   /**  随机背景色  */
   bgRandom(): string;
-};
+}
 
 /**  所有可配置项  */
 export type KindListKey = keyof FunctionKindList | keyof StringKindList;

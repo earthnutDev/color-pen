@@ -5,7 +5,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import jsdocPlugin from 'eslint-plugin-jsdoc';
 
 export default [
-  { files: ['**/*.ts'] },
+  { files: ['src/**/*.ts'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,

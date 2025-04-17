@@ -1,8 +1,7 @@
-import { isString, isType } from 'a-type-of-js';
 import { buildResultStr } from './color/buildResultStr';
 import { kindList } from './color/kindList';
+import { penCaseGetter } from './penCaseGetter';
 import { FunctionKindList, Pen, StringKindList } from './types';
-import { mergeValueIsString } from './color/mergeValue';
 
 /**
  *
@@ -26,7 +25,7 @@ export function generatePen(kinds: string[]): Pen {
     kind,
     {
       get() {
-        return penCaseGetter(kind, kinds);
+        return penCaseGetter(kind, kinds, generatePen);
       },
     },
   ]);
@@ -38,28 +37,4 @@ export function generatePen(kinds: string[]): Pen {
   Object.defineProperties(penCase, penCaseParam);
 
   return penCase as Pen;
-}
-/**  笔盒的属性的 getter   */
-function penCaseGetter(
-  kind: keyof StringKindList | keyof FunctionKindList,
-  kinds: string[],
-) {
-  let newKinds = [];
-  if (isType<keyof StringKindList>(kind, isString(kindList[kind]))) {
-    /**  样式合并（非函数性）  */
-    newKinds = mergeValueIsString(kinds, kindList[kind]);
-    return generatePen(newKinds);
-  } else {
-    if ('random' === kind || 'bgRandom' === kind) {
-      /**  随机色  */
-      const newColor = kindList[kind]();
-      newKinds = mergeValueIsString(kinds, newColor); // 随机色
-      return generatePen(newKinds);
-    } else if ('hex' === kind) {
-      return (hex: number | string) => {
-        newKinds = mergeValueIsString(kinds, kindList['hex'](hex));
-        return generatePen(newKinds);
-      };
-    }
-  }
 }

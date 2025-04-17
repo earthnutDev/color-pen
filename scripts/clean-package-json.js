@@ -29,7 +29,7 @@ packageJson = {
       },
     },
   },
-  keywords: ['color-pen'],
+  keywords: ['color-pen', '彩色笔'],
   homepage: 'https://earthnut.dev/color-pen',
   bugs: {
     url: 'https://github.com/earthnutDev/color-pen/issues',

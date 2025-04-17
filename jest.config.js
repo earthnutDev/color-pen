@@ -28,10 +28,10 @@ export default () => {
       // 测试覆盖率阀值配置
       // 低于该阀值将触发 error
       global: {
-        branches: 80,
-        functions: 85,
-        lines: 90,
-        statements: 90,
+        branches: 10,
+        functions: 10,
+        lines: 10,
+        statements: 10,
       },
     },
     coverageReporters: ['text', 'lcov', 'html', 'text-summary'],

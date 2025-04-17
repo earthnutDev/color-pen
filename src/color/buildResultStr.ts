@@ -25,5 +25,13 @@ export function buildResultStr(str: string, kinds: string[]): string {
       .concat(buildResultStr(str.substring(hasColorEnd + 4), kinds));
   }
 
-  return `${t}${kinds.join(';')}m${str}${t}0m`;
+  if (str.endsWith('\r\n')) {
+    str = str.substring(0, str.length - 2);
+    return `${t}${kinds.join(';')}m${str}${t}0m\r\n`;
+  } else if (str.endsWith('\n')) {
+    str = str.substring(0, str.length - 1);
+    return `${t}${kinds.join(';')}m${str}${t}0m\n`;
+  } else {
+    return `${t}${kinds.join(';')}m${str}${t}0m`;
+  }
 }

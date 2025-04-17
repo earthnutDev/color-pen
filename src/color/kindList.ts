@@ -1,6 +1,8 @@
 import { getRandomInt } from 'a-js-tools';
 import { StringKindList, FunctionKindList } from 'src/types';
-import { computedTerminalColor } from './computedTerminalColor';
+import { generateRgb } from './generateRgb';
+import { generateColor } from './generateColor';
+import { generateHex } from './generateHex';
 
 /**
  *
@@ -48,12 +50,16 @@ export const kindList: StringKindList & FunctionKindList = {
   reversed: '7',
   hide: '8',
   random: () => `38;5;${getRandomInt(255)}`,
-  rgb: (rgb: string | number[]) => `38;5;${computedTerminalColor(rgb, false)}`,
-  hex: (hex: string | number) => `38;5;${computedTerminalColor(hex)}`,
+  rgb: (r: string | number, g?: number, b?: number) => generateRgb(r, g, b),
+  hex: (hex: string | number) => generateHex(hex),
+  color: (color: string | number, g: number, b: number) =>
+    generateColor(color, g, b),
   bgRandom: () => `48;5;${getRandomInt(255)}`,
-  bgRgb: (rgb: string | number[]) =>
-    `48;5;${computedTerminalColor(rgb, false)}`,
-  bgHex: (hex: string | number) => `48;5;${computedTerminalColor(hex)}`,
+  bgRgb: (r: string | number, g?: number, b?: number) =>
+    generateRgb(r, g, b, false),
+  bgHex: (hex: string | number) => generateHex(hex, false),
+  bgColor: (color: string | number, g: number, b: number) =>
+    generateColor(color, g, b, false),
 } as const;
 
 /**  冻结  */
