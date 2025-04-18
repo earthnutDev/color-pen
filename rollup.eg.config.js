@@ -16,7 +16,7 @@ export default {
       preserveModules: false,
       sourcemap: false,
       exports: 'named',
-      dir: '.earthnut/',
+      dir: '.eg/',
     },
   ],
   // 配置需要排除的包
