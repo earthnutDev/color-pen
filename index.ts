@@ -8,9 +8,9 @@ export { t } from './src/t';
  *
  *
  */
-const pen = generatePen([]);
+const pen = new generatePen([]);
 
-export { pen, pen as colorPen };
+export { pen, pen as colorPen, generatePen };
 export default pen;
 
 export type {

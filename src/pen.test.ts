@@ -2,7 +2,7 @@ import { generatePen } from './pen';
 
 describe('generatePen', () => {
   describe('测试 pen 的创建', () => {
-    const pen = generatePen([]);
+    const pen = new generatePen([]);
     it('应当返回一个粗色笔', () => {
       const boldPen = pen.bold;
 
@@ -23,7 +23,7 @@ describe('generatePen', () => {
   });
 
   describe('测试笔盒', () => {
-    const pen = generatePen([]);
+    const pen = new generatePen([]);
     it('先创建出绿色后被红色覆盖应时当返回一个红色的粗笔盒', () => {
       const redBoldPen = pen.blue.red.bold;
 
@@ -32,7 +32,7 @@ describe('generatePen', () => {
   });
 
   describe('嵌套的彩色笔盒', () => {
-    const pen = generatePen([]);
+    const pen = new generatePen([]);
     it('先创建出绿色后被红色覆盖应时当返回一个红色的粗笔盒', () => {
       const redBoldPen = pen.blue.red.bold;
       const yellowItalic = pen.yellow.italic;

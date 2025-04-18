@@ -1,3 +1,4 @@
+import { createConstructor } from 'a-js-tools';
 import { buildResultStr } from './color/buildResultStr';
 import { kindList } from './color/kindList';
 import { penCaseGetter } from './penCaseGetter';
@@ -10,7 +11,7 @@ import { FunctionKindList, Pen, StringKindList } from './types';
  * @param kinds 样式数组
  *
  */
-export function generatePen(kinds: string[]): Pen {
+function generatePen(kinds: string[] = []): Pen {
   /**************************
    * 笔盒
    *
@@ -25,7 +26,7 @@ export function generatePen(kinds: string[]): Pen {
     kind,
     {
       get() {
-        return penCaseGetter(kind, kinds, generatePen);
+        return penCaseGetter(kind, kinds, generatePenConstructor);
       },
     },
   ]);
@@ -38,3 +39,16 @@ export function generatePen(kinds: string[]): Pen {
 
   return penCase as Pen;
 }
+
+/**
+ *
+ * 构建 `pen` 的构造函数
+ *
+ * @param kinds 样式数组
+ *
+ * @example
+ *
+ */
+const generatePenConstructor = createConstructor(generatePen);
+
+export { generatePenConstructor as generatePen };

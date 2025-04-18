@@ -1,29 +1,30 @@
 import { isNumber, isString, isType, isUndefined } from 'a-type-of-js';
-import { FunctionKindList, Pen, StringKindList } from './types';
+import { KindListKey, Pen, StringKindList } from './types';
 import { kindList } from './color/kindList';
 import { mergeValueIsString } from './color/mergeValue';
+import { CreateConstructor } from 'a-js-tools';
 
 /**  笔盒的属性的 getter   */
 export function penCaseGetter(
-  kind: keyof StringKindList | keyof FunctionKindList,
+  kind: KindListKey,
   kinds: string[],
-  generatePen: (kinds: string[]) => Pen,
+  generatePen: CreateConstructor<Pen, [kinds: string[]]>,
 ) {
   let newKinds = [];
   if (isType<keyof StringKindList>(kind, isString(kindList[kind]))) {
     /**  样式合并（非函数性）  */
     newKinds = mergeValueIsString(kinds, kindList[kind]);
-    return generatePen(newKinds);
+    return new generatePen(newKinds);
   } else {
     if ('random' === kind || 'bgRandom' === kind) {
       /**  随机色  */
       const newColor = kindList[kind]();
       newKinds = mergeValueIsString(kinds, newColor); // 随机色
-      return generatePen(newKinds);
+      return new generatePen(newKinds);
     } else if ('hex' === kind || 'bgHex' === kind) {
       return (hex: number | string) => {
         newKinds = mergeValueIsString(kinds, kindList[kind](hex));
-        return generatePen(newKinds);
+        return new generatePen(newKinds);
       };
     } else if ('rgb' === kind || 'bgRgb' === kind) {
       return (r: string | number, g: number, b: number) => {
@@ -36,7 +37,7 @@ export function penCaseGetter(
             `${kind} 的参数类型不正确，请使用 'rgb' 或 'hex' 函数`,
           );
         }
-        return generatePen(newKinds);
+        return new generatePen(newKinds);
       };
     } else if ('color' === kind || 'bgColor' === kind) {
       return (r: string | number, g: number, b: number) => {
@@ -49,7 +50,7 @@ export function penCaseGetter(
             `${kind} 的参数类型不正确，请使用 'rgb' 或 'hex' 函数`,
           );
         }
-        return generatePen(newKinds);
+        return new generatePen(newKinds);
       };
     }
   }
