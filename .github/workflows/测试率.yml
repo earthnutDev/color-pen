@@ -29,7 +29,8 @@ jobs:
       - name: 初始化 Node 并设定 Node 版本
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          ## 由于设置版本为 18 ，导致测试总是报错
+          node-version: 22.x
 
       - name: 安装 dependencies 依赖
         run: npm install

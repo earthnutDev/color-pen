@@ -41,10 +41,10 @@ export default () => {
     transform: {
       '^.+\\.tsx?$': [
         'ts-jest',
-        {
-          isolatedModules: true,
-          tsconfig: 'tsconfig.json',
-        },
+        // {
+        //   isolatedModules: true,
+        //   tsconfig: 'tsconfig.json',
+        // },
       ],
     },
     fakeTimers: {
