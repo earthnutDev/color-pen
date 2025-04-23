@@ -1,9 +1,12 @@
-import { isString, isPlainObject, typeOf } from 'a-type-of-js';
+import { isString, isPlainObject } from 'a-type-of-js';
 
+/**  测试 pen  */
 class Pen extends String {
+  /**    */
   constructor(t: string) {
     super(t);
   }
+  /**    */
   toString(): string {
     return this.valueOf();
   }
@@ -11,7 +14,6 @@ class Pen extends String {
 
 const pen = new Pen('pen');
 
-console.log(typeOf(pen));
 describe('测试 Pen', () => {
   it('should be a string', () => {
     expect(typeof pen).toBe('object');

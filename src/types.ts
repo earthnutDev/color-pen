@@ -71,7 +71,6 @@ export type RGBFunction = RGBFunctionWithThreeNumbers &
  * 🖌️
  *
  */
-
 export type Pen = {
   [key in keyof StringKindList]: Pen;
 } & {
@@ -83,6 +82,8 @@ export type Pen = {
         ? ((r: number, g: number, b: number) => Pen) &
             ((rgb: string | number) => Pen)
         : Pen;
+} & {
+  (strList: TemplateStringsArray, ...paramsList: string[]): string;
 } & { (text: string): string };
 /**
  *

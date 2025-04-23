@@ -99,6 +99,11 @@ describe('computedTerminalColor', () => {
   it('将返回一个任意色值', () => {
     expect(computedTerminalColor('#fffd', true)).toBeGreaterThanOrEqual(0);
   });
+
+  it('将返回一个任意色值', () => {
+    expect(computedTerminalColor('#f', true)).toBeGreaterThanOrEqual(0);
+  });
+
   it('超长值将返回一个任意值', () => {
     expect(
       computedTerminalColor('0x999966955578', true),

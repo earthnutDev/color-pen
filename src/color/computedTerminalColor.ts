@@ -1,5 +1,6 @@
 import { getRandomInt } from 'a-js-tools';
 import { isArray, isNumber, isString } from 'a-type-of-js';
+import { dog } from '../dog';
 
 /**
  *
@@ -80,7 +81,7 @@ export function computedTerminalColor(
   } else {
     throw new TypeError('The second variable `isHex` must be boolean');
   }
-
+  dog('转变后的 color 值', color);
   let r = 0,
     g = 0,
     b = 0;

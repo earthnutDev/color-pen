@@ -1,31 +1,33 @@
 import { generateColor } from './generateColor';
 import { generateRgb } from './generateRgb';
 
-// Mock generateColor function
+// 模拟 generateColor 函数
 jest.mock('./generateColor', () => {
   return {
     generateColor: jest.fn(),
   };
 });
 
+jest.mock('../dog');
+
 describe('generateRgb', () => {
   beforeAll(() => {
-    // Mock console.error to capture logs
+    // 模拟 console.error 变成捕获的方法
     global.console.error = jest.fn();
   });
 
   afterAll(() => {
-    // Restore original console.error
+    //重置 console.error 为原始的方法
     global.console.error = console.error;
   });
 
   beforeEach(() => {
-    // Reset mocks before each test
+    // 每一次测试前重置模拟函数
     generateColor.mockClear();
     global.console.error.mockClear();
   });
 
-  it('should return valid color string for valid hex string', () => {
+  it('当使用有效的十六进制色值时应当返回有效的色值', () => {
     generateColor.mockImplementation(hex => `${hex.toString(16)}`);
 
     expect(generateRgb('#ff0000')).toBe('#ff0000');
@@ -47,7 +49,7 @@ describe('generateRgb', () => {
     );
   });
 
-  it('should return valid color string for valid hex number', () => {
+  it('应当返回有效的色值 for valid hex number', () => {
     generateColor.mockImplementation(hex => `#${hex.toString(16)}`);
 
     expect(generateRgb(0xff0000)).toBe('#ff0000');

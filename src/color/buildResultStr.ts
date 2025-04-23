@@ -1,4 +1,4 @@
-import { t } from '../t';
+import { csi } from '../esc';
 
 /**
  *
@@ -17,8 +17,8 @@ export function buildResultStr(str: string, kinds: string[]): string {
   if (kinds.length === 0) {
     return str;
   }
-  const hasColorStart = str.indexOf(t);
-  const hasColorEnd = str.indexOf(`${t}0m`);
+  const hasColorStart = str.indexOf(csi);
+  const hasColorEnd = str.indexOf(`${csi}0m`);
   if (hasColorStart > -1 && hasColorEnd > -1) {
     return buildResultStr(str.substring(0, hasColorStart), kinds)
       .concat(str.substring(hasColorStart, hasColorEnd + 4))
@@ -27,11 +27,11 @@ export function buildResultStr(str: string, kinds: string[]): string {
 
   if (str.endsWith('\r\n')) {
     str = str.substring(0, str.length - 2);
-    return `${t}${kinds.join(';')}m${str}${t}0m\r\n`;
+    return `${csi}${kinds.join(';')}m${str}${csi}0m\r\n`;
   } else if (str.endsWith('\n')) {
     str = str.substring(0, str.length - 1);
-    return `${t}${kinds.join(';')}m${str}${t}0m\n`;
+    return `${csi}${kinds.join(';')}m${str}${csi}0m\n`;
   } else {
-    return `${t}${kinds.join(';')}m${str}${t}0m`;
+    return `${csi}${kinds.join(';')}m${str}${csi}0m`;
   }
 }

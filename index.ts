@@ -1,6 +1,7 @@
 import { generatePen } from './src/pen';
+import { Pen } from './src/types';
 
-export { t } from './src/t';
+export { esc, csi, terminalResetStyle, terminalRegExp } from './src/esc';
 
 /**
  *
@@ -8,7 +9,7 @@ export { t } from './src/t';
  *
  *
  */
-const pen = new generatePen([]);
+const pen: Pen = new generatePen([]);
 
 export { pen, pen as colorPen, generatePen };
 export default pen;
@@ -19,3 +20,5 @@ export type {
   StringKindList,
   FunctionKindList,
 } from './src/types';
+
+export { strInTerminalLength } from './src/strInTerminalLength';

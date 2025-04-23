@@ -21,6 +21,8 @@ export default () => {
       '/node_modules/',
       '/dist/',
       '/test/',
+      'dog.ts',
+      'pen.ts',
       '\\.d\\.ts$',
       '\\.test\\.[jt]sx?$',
     ],
