@@ -115,6 +115,8 @@ console.log(terminalRegExp.test('\x1b[38;5;236m')); // true
 |  `bgBrightCyan`   |                      |                       |
 |  `bgBrightWhite`  | `rgb(255 ,255 ,255)` |       `#ffffff`       |
 
+###
+
 - `bg` 开头的是配置背景色
 - `hex` 以 16 进制值配置文本色
 - `rgb` 以 rgb 值配置文本色

@@ -179,6 +179,34 @@ describe('验证 penCaseGetter 回调', () => {
     expect(result).toEqual({ color: 'black' });
   });
 
+  it('应当 generate pen 当 kind 值为 "number" ，且调用数值为 number', () => {
+    const kind = 'number';
+    const kinds = ['red', 'blue'];
+    const n = 1;
+    const mockHexColor = 'black';
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    kindList[kind] = (hex: string) => mockHexColor;
+    mergeValueIsString.mockReturnValue(['red', 'blue', 'black']);
+    generatePen.mockReturnValue({ color: 'black' });
+
+    const result = penCaseGetter(kind, kinds, generatePen)(n);
+
+    expect(mergeValueIsString).toHaveBeenCalledWith(kinds, mockHexColor);
+    expect(generatePen).toHaveBeenCalledWith(['red', 'blue', 'black']);
+    expect(result).toEqual({ color: 'black' });
+  });
+
+  it('应当 generate pen 当 kind 值为 "number" ，且调用数值为非 number，应抛出类型错误', () => {
+    const kind = 'number';
+    const kinds = ['red', 'blue'];
+    const n = false;
+    const mockHexColor = 'black';
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    kindList[kind] = (hex: string) => mockHexColor;
+
+    expect(() => penCaseGetter(kind, kinds, generatePen)(n)).toThrow(TypeError);
+  });
+
   it('应当抛出 Error 当 kind 值为 "color" 当不满足要求', () => {
     const kind = 'color';
     const kinds = ['red', 'blue'];
@@ -198,8 +226,6 @@ describe('验证 penCaseGetter 回调', () => {
     const kind = 'unknown';
     const kinds = ['red', 'blue'];
 
-    const result = penCaseGetter(kind, kinds, generatePen);
-
-    expect(result).toBeUndefined();
+    expect(() => penCaseGetter(kind, kinds, generatePen)).toThrow(Error);
   });
 });

@@ -3,6 +3,7 @@ import { StringKindList, FunctionKindList } from 'src/types';
 import { generateRgb } from './generateRgb';
 import { generateColor } from './generateColor';
 import { generateHex } from './generateHex';
+import { generateNumber } from './generateNumber';
 
 /**
  *
@@ -54,12 +55,14 @@ export const kindList: StringKindList & FunctionKindList = {
   hex: (hex: string | number) => generateHex(hex),
   color: (color: string | number, g: number, b: number) =>
     generateColor(color, g, b),
+  number: (n: number) => generateNumber(n, true),
   bgRandom: () => `48;5;${getRandomInt(255)}`,
   bgRgb: (r: string | number, g?: number, b?: number) =>
     generateRgb(r, g, b, false),
   bgHex: (hex: string | number) => generateHex(hex, false),
   bgColor: (color: string | number, g: number, b: number) =>
     generateColor(color, g, b, false),
+  bgNumber: (n: number) => generateNumber(n),
 } as const;
 
 /**  冻结  */

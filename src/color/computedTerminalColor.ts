@@ -102,7 +102,7 @@ export function computedTerminalColor(
     r = getColor(Number(colorArr[0]));
     g = getColor(Number(colorArr[1]));
     b = getColor(Number(colorArr[2]));
-  } else return getRandomInt(255);
+  }
 
   return 16 + 36 * r + 6 * g + b;
 }

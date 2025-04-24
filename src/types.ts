@@ -74,14 +74,19 @@ export type RGBFunction = RGBFunctionWithThreeNumbers &
 export type Pen = {
   [key in keyof StringKindList]: Pen;
 } & {
-  [key in keyof FunctionKindList]: key extends 'rgb' | 'bgRgb'
+  [key in keyof FunctionKindList]: key extends 'rgb' | 'bgRgb' // 使用 rgb 色值
     ? RGBFunction
-    : key extends 'hex' | 'bgHex'
+    : // 使用十六进制色值
+      key extends 'hex' | 'bgHex'
       ? (hex: number | string) => Pen
-      : key extends 'color' | 'bgColor'
+      : // 直接指定色值
+        key extends 'color' | 'bgColor'
         ? ((r: number, g: number, b: number) => Pen) &
             ((rgb: string | number) => Pen)
-        : Pen;
+        : // 使用数值设置色值
+          key extends 'number' | 'bgNumber'
+          ? (n: number) => Pen
+          : Pen;
 } & {
   (strList: TemplateStringsArray, ...paramsList: string[]): string;
 } & { (text: string): string };
@@ -530,6 +535,72 @@ export interface FunctionKindList {
   random(): string;
   /**  随机背景色  */
   bgRandom(): string;
+  /**
+   *  ## 直接使用数值指定终端前景色颜色
+   *
+   * 后期有时间会出一个数值与色值的对照表
+   *
+   * @param n 终端颜色值，取值范围 `0 - 255`
+   * @returns 返回 ANSI 颜色文本
+   * @example
+   *
+   * ```ts
+   * import { pen } from 'color-pen';
+   *
+   * pen.number(0)`黑色文本`;
+   * pen.number(1)`红色文本`;
+   * pen.number(2)`绿色文本`;
+   * pen.number(3)`黄色文本`;
+   * pen.number(4)`蓝草绿色文本`;
+   * pen.number(5)`杨红色文本`;
+   * pen.number(6)`青色文本`;
+   * pen.number(7)`白色文本`;
+   * pen.number(8)`亮黑色文本`;
+   * pen.number(9)`亮红色文本`;
+   * pen.number(10)`亮绿色文本`;
+   * pen.number(11)`亮黄色文本`;
+   * pen.number(12)`亮蓝草绿色文本`;
+   * pen.number(13)`亮杨红色文本`;
+   * pen.number(14)`亮青色文本`;
+   * pen.number(15)`亮白色文本`;
+   * // 数值再高就涉及到计算了。后期将计算公式贴出
+   *
+   * ```
+   */
+  number(n: number): string;
+  /**
+   *  ## 直接使用数值指定终端背景色颜色
+   *
+   * 后期有时间会出一个数值与色值的对照表
+   *
+   * @param n 终端颜色值，取值范围 `0 - 255`
+   * @returns 返回 ANSI 颜色文本
+   * @example
+   *
+   * ```ts
+   * import { pen } from 'color-pen';
+   *
+   * pen.number(0)`黑色背景`;
+   * pen.number(1)`红色背景`;
+   * pen.number(2)`绿色背景`;
+   * pen.number(3)`黄色背景`;
+   * pen.number(4)`蓝草绿色背景`;
+   * pen.number(5)`杨红色背景`;
+   * pen.number(6)`青色背景`;
+   * pen.number(7)`白色背景`;
+   * pen.number(8)`亮黑色背景`;
+   * pen.number(9)`亮红色背景`;
+   * pen.number(10)`亮绿色背景`;
+   * pen.number(11)`亮黄色背景`;
+   * pen.number(12)`亮蓝草绿色背景`;
+   * pen.number(13)`亮杨红色背景`;
+   * pen.number(14)`亮青色背景`;
+   * pen.number(15)`亮白色背景`;
+   * // 数值再高就涉及到计算了。后期将计算公式贴出
+   *
+   * ```
+   */
+  bgNumber(n: number): string;
 }
 
 /**  所有可配置项  */

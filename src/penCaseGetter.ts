@@ -52,6 +52,17 @@ export function penCaseGetter(
         }
         return new generatePen(newKinds);
       };
+    } else if ('number' === kind || 'bgNumber' === kind) {
+      return (n: number) => {
+        if (isNumber(n)) {
+          newKinds = mergeValueIsString(kinds, kindList[kind](n));
+          return new generatePen(newKinds);
+        } else {
+          throw new TypeError(`${kind} 的参数应为有效正整数数值，范围 0 - 255`);
+        }
+      };
+    } else {
+      throw new Error(`${kind} 函数不存在`);
     }
   }
 }

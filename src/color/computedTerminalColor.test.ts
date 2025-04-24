@@ -44,6 +44,9 @@ describe('computedTerminalColor', () => {
   it('需要返回一个有效的  color 值，参数为 number', () => {
     expect(computedTerminalColor(0xfff, true)).toBe(231);
   });
+  it('需要返回一个有效的  color 值，参数为 number', () => {
+    expect(computedTerminalColor(0xfff, true)).toBe(231);
+  });
   it('参数为 string 类型，第二个参数为 true ：需要返回一个有效的  color', () => {
     expect(computedTerminalColor('rgb(255, 255, 255)', false)).toBe(231);
   });
@@ -79,9 +82,10 @@ describe('computedTerminalColor', () => {
   });
 
   it('第二参数非 `boolean` 将抛出 TypeError', () => {
-    expect(() => computedTerminalColor('invalid', undefined)).toThrow(
+    expect(() => computedTerminalColor('invalid', 'undefined')).toThrow(
       TypeError,
     );
+    expect(() => computedTerminalColor('invalid', NaN)).toThrow(TypeError);
   });
 
   it('将抛出 TypeError', () => {
