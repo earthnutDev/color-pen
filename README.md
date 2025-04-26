@@ -13,7 +13,7 @@
 - `terminalResetStyle` 重置属性样式，即 `\x1b[0m`
 - `terminalRegExp` 一个用于 ANSI 的正则字符串，可用与判断字符串是否包含 ANSI 转义或是清理
 - `strInTerminalLength` 获取字符串在终端显示的长度
-- `substringOnChar` 以在终端的长度截断字符串
+- `truncateStringWithChar` 以在终端的长度截断字符串
 
 ### `esc`
 

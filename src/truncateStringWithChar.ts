@@ -9,7 +9,11 @@ import { strInTerminalLength } from './strInTerminalLength';
  *
  * @returns 返回原字符串或截断后的字符串
  */
-export function substringOnChar(str: string, len: number) {
+export function truncateStringWithChar(str: string, len: number) {
+  if (len === 0) {
+    return '';
+  }
+
   const strLen = strInTerminalLength(str);
   // 给出的字符串并没有设定的长度时直接返回该字符串
   if (strLen <= len) {
@@ -27,6 +31,4 @@ export function substringOnChar(str: string, len: number) {
       return result.slice(0, -1).concat(' ');
     }
   }
-  // 这里不会触发的
-  return str;
 }

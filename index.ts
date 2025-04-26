@@ -23,4 +23,4 @@ export type {
 
 export { strInTerminalLength } from './src/strInTerminalLength';
 
-export { substringOnChar } from './src/substringOnChar';
+export { truncateStringWithChar } from './src/truncateStringWithChar';
