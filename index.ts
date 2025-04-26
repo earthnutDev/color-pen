@@ -22,3 +22,5 @@ export type {
 } from './src/types';
 
 export { strInTerminalLength } from './src/strInTerminalLength';
+
+export { substringOnChar } from './src/substringOnChar';
