@@ -14,6 +14,7 @@
 - `terminalRegExp` 一个用于 ANSI 的正则字符串，可用与判断字符串是否包含 ANSI 转义或是清理
 - `strInTerminalLength` 获取字符串在终端显示的长度
 - `truncateStringWithChar` 以在终端的长度截断字符串
+- `strInOneLineOnTerminal` 在终端中以一行的形式展示字符串（不影响单行内的换行符）
 
 ### `esc`
 
@@ -71,6 +72,8 @@ console.log(terminalRegExp.test('\x1b[38;5;236m')); // true
 
 ### `strInTerminalLength` 字符串在终端显示的长度
 
+暂时没有示例展示
+
 ## pen 静态属性
 
 |  颜色类型的属性   |   对应的 RGB 色值    | ｜ 对应的 16 进制色值 |
@@ -79,6 +82,7 @@ console.log(terminalRegExp.test('\x1b[38;5;236m')); // true
 |       `rgb`       |         ---          |          ---          |
 |     `random`      |         ---          |          ---          |
 |      `color`      |         ---          |          ---          |
+|     `number`      |         ---          |          ---          |
 |      `black`      |  `rgb(86 ,86 ,86)`   |       `#565656`       |
 |       `red`       |  `rgb(181 ,40 ,29)`  |       `#b5281d`       |
 |      `green`      |  `rgb(50 ,181 ,32)`  |       `#32b520`       |
@@ -99,6 +103,7 @@ console.log(terminalRegExp.test('\x1b[38;5;236m')); // true
 |      `bgHex`      |         ---          |          ---          |
 |    `bgRandom`     |         ---          |          ---          |
 |     `bgColor`     |         ---          |          ---          |
+|    `bgNumber`     |         ---          |          ---          |
 |     `bgBlack`     |  `rgb(86 ,86 ,86)`   |       `#565656`       |
 |      `bgRed`      |  `rgb(181 ,40 ,29)`  |       `#b5281d`       |
 |     `bgGreen`     |  `rgb(50 ,181 ,32)`  |       `#32b520`       |
@@ -122,11 +127,13 @@ console.log(terminalRegExp.test('\x1b[38;5;236m')); // true
 - `hex` 以 16 进制值配置文本色
 - `rgb` 以 rgb 值配置文本色
 - `color` 以 16 进制或 rgb 配置文本色
+- `number` 以终端色值数值配置文本色
 - `random` 随机颜色
 - `bgRandom` 随机背景色
 - `bgHex` 以 16 进制值配置背景色
 - `bgRgb` 以 RGB 值配置背景色
 - `bgColor` 以 16 进制或 rgb 配置背景色
+- `bgNumber` 以终端色值数值配置背景色
 
 | 非颜色色值其他属性 | 示意                                                   |
 | :----------------- | :----------------------------------------------------- |
