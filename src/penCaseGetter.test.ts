@@ -6,7 +6,6 @@ import { penCaseGetter } from './penCaseGetter';
 jest.mock('./color/kindList');
 jest.mock('./color/mergeValue');
 jest.mock('./pen');
-jest.mock('./dog');
 
 describe('验证 penCaseGetter 回调', () => {
   beforeEach(() => {

@@ -8,8 +8,6 @@ jest.mock('./generateColor', () => {
   };
 });
 
-jest.mock('../dog');
-
 describe('generateRgb', () => {
   beforeAll(() => {
     // 模拟 console.error 变成捕获的方法
