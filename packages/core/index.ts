@@ -26,3 +26,5 @@ export { strInTerminalLength } from './src/strInTerminalLength';
 export { truncateStringWithChar } from './src/truncateStringWithChar';
 
 export { strInOneLineOnTerminal } from './src/strInOneLineOnTerminal';
+
+export { colorText } from './src/colorText/index';

@@ -13,24 +13,24 @@ let packageJson = readFileToJsonSync('./package.json');
 
 packageJson = {
   ...packageJson,
-  main: 'cjs/index.cjs',
-  types: 'types/index.d.ts',
-  module: 'mjs/index.mjs',
-  files: ['mjs', 'cjs', 'types'],
+  main: 'index.cjs',
+  types: 'index.d.ts',
+  module: 'index.mjs',
+  files: ['index.mjs', 'index.cjs', 'index.d.ts'],
   exports: {
     '.': {
       import: {
-        default: './mjs/index.mjs',
-        types: './types/index.d.ts',
+        default: './index.mjs',
+        types: './index.d.ts',
       },
       require: {
-        default: './cjs/index.cjs',
-        types: './types/index.d.ts',
+        default: './index.cjs',
+        types: './index.d.ts',
       },
     },
   },
-  keywords: ['color-pen', '彩色笔'],
-  homepage: 'https://earthnut.dev/color-pen',
+  keywords: ['@color-pen/static', '彩色笔'],
+  homepage: 'https://earthnut.dev/color-pen/static',
   bugs: {
     url: 'https://github.com/earthnutDev/color-pen/issues',
     email: 'earthnut.dev@outlook.com',

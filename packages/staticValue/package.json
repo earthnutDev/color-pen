@@ -1,0 +1,17 @@
+{
+  "name": "@color/static",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "color-pen 的静态数据值，在 color-pen 中已有导出",
+  "scripts": {
+    "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
+    "build": "jja rm dist && npm run  b && npm run clean:package-json",
+    "clean:package-json": "node scripts/clean-package-json.js",
+    "diff": "jja pkg --diff",
+    "eslint": "jja cls && eslint src",
+    "beautify": "npm run prettier",
+    "prettier": "jja cls && prettier . --write",
+    "test": "jja cls && rollup --config rollup.config.test.js && node test/out/test/index.mjs"
+  },
+  "license": "MIT"
+}
