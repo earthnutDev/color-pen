@@ -46,8 +46,8 @@ check_version() {
   echo "开始校验是否通过包版本审视"
   if npx @qqi/check-version name=$input; then
     echo "校验通过 ${NAME}"
-    echo "UPDATE_PACKAGE_ARRAY 追加数据：$PACKAGE_DIR"
-    UPDATE_PACKAGE_ARRAY+=("$PACKAGE_DIR")
+    echo "UPDATE_PACKAGE_ARRAY 追加数据：$input"
+    UPDATE_PACKAGE_ARRAY+=("$input")
     echo "当前的 ${UPDATE_PACKAGE_ARRAY}"
     return 0
   else
