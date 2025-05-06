@@ -1,7 +1,7 @@
-import test from 'node:test';
-import pen from '..';
+import pen from '../index';
+import { dev } from '@qqi/dev-log';
 
-test.skip('测试参数为单字符串的情况', () => {
+dev.skip('测试参数为单字符串的情况', () => {
   const log = console.log;
 
   const boldPen = pen.bold;
@@ -34,8 +34,8 @@ test.skip('测试参数为单字符串的情况', () => {
   );
 
   log(italicPen('斜体文本'));
-  console.log(pen.hex(0xff0000)('红色文本'));
-  console.log(pen.bgHex(0xff0000)('红色背景'));
+  console.log(pen.hex('0xff0000')('红色文本'));
+  console.log(pen.bgHex('0xff0000')('红色背景'));
 
   console.log(pen.rgb(255, 0, 0)('红色文本'));
   console.log(pen.bgRgb(255, 0, 0)('红色背景'));
@@ -47,7 +47,7 @@ test.skip('测试参数为单字符串的情况', () => {
 
   console.log(pen.bgColor('rgb(255, 0, 0)')('rgb(255, 0, 0) 红色背景'));
 
-  console.log(pen.color(0xff0000)('0xff0000 红色文本'));
-
-  console.log(pen.bgColor(0xff0000)('0xff0000 红色背景'));
+  console.log(pen.color('0xff0000')('0xff0000 红色文本'));
+  pen.rgb('rgb');
+  console.log(pen.bgColor('0xff0000')('0xff0000 红色背景'));
 });

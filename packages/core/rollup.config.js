@@ -35,7 +35,9 @@ export default {
     commonjs(),
     // 可打包 json 内容
     json(),
-    typescript({}),
+    typescript({
+      tsconfig: './tsconfig.rollup.json',
+    }),
     cleanup(),
     copy({
       targets: [

@@ -25,9 +25,10 @@ import { isTwoLen } from './isTwoLen';
  * 所有，本函数使用 reduce 计算
  */
 export function strInTerminalLength(str: string): number {
+  const _t = terminalRegExp();
   // 去除终端控制字符
   return str
-    .replace(terminalRegExp, '')
+    .replace(_t, '')
     .split('')
     .reduce((len, code) => len + 1 + Number(isTwoLen(code)), 0);
 }

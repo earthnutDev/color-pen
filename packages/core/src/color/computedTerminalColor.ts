@@ -26,12 +26,6 @@ export function computedTerminalColor(
   isHex: boolean = true,
 ): number {
   if (true === isHex) {
-    /**  当 isHex 为 true 时, color 只能为 string 或 number 但不能是 number[]  */
-    if (isArray(color)) {
-      throw new TypeError(
-        '`color` must be a string or number but not number[] when isHex is true',
-      );
-    }
     /// color 为 string
     if (isString(color)) {
       if (color.startsWith('0x')) {
@@ -41,9 +35,10 @@ export function computedTerminalColor(
           '`color` must be a string or number but not number[] when isHex is true',
         );
       }
-    } else if (isNumber(color)) {
-      //   color 为 number 时转化为 string
-      color = '#'.concat(color.toString(16));
+    } else {
+      throw new TypeError(
+        '`color` must be a string or number but not number[] when isHex is true',
+      );
     }
   } else if (isHex === false) {
     if (isArray(color)) {

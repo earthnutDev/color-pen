@@ -22,12 +22,12 @@ export function penCaseGetter(
       newKinds = mergeValueIsString(kinds, newColor); // 随机色
       return new generatePen(newKinds);
     } else if ('hex' === kind || 'bgHex' === kind) {
-      return (hex: number | string) => {
+      return (hex: string) => {
         newKinds = mergeValueIsString(kinds, kindList[kind](hex));
         return new generatePen(newKinds);
       };
     } else if ('rgb' === kind || 'bgRgb' === kind) {
-      return (r: string | number, g: number, b: number) => {
+      return (r: string | number, g?: number, b?: number) => {
         if (isString(r) && isUndefined(g) && isUndefined(b)) {
           newKinds = mergeValueIsString(kinds, kindList[kind](r));
         } else if (isNumber(r) && isNumber(g) && isNumber(b)) {
@@ -40,8 +40,11 @@ export function penCaseGetter(
         return new generatePen(newKinds);
       };
     } else if ('color' === kind || 'bgColor' === kind) {
-      return (r: string | number, g: number, b: number) => {
-        if ((isString(r) || isNumber(r)) && isUndefined(g) && isUndefined(b)) {
+      /**
+       * 456
+       */
+      return (r: string | number, g?: number, b?: number) => {
+        if (isString(r) && isUndefined(g) && isUndefined(b)) {
           newKinds = mergeValueIsString(kinds, kindList[kind](r));
         } else if (isNumber(r) && isNumber(g) && isNumber(b)) {
           newKinds = mergeValueIsString(kinds, kindList[kind](r, g, b));

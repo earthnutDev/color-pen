@@ -2,16 +2,23 @@ name: 发布到 npm
 on:
   push:
     branches: '*'
+    paths:
+      - 'packages/core/*' # 主包更新
+      - 'package.json' # 全局依赖
   workflow_dispatch: # 手动触发
     inputs:
-      version:
-        description: '触发原因（选填）'
-        required: false
-        default: '手动触发'
       ref:
         description: '触发的分支（选填，默认为当前分支）'
         required: false
         default: ''
+      package:
+        description: '子包'
+        required: true
+        type: choice
+        options:
+          - core
+          - all
+        default: 'all'
 
 jobs:
   pub:
@@ -28,12 +35,13 @@ jobs:
     if: |
       (github.event_name == 'push' && startsWith(github.event.head_commit.message, 'version')) ||
       github.event_name == 'workflow_dispatch'
+
     steps:
       - name: 代码检出
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.ref || github.ref_name }}
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: 初始化 Node 并设定 Node 版本
         uses: actions/setup-node@v4
@@ -41,9 +49,29 @@ jobs:
           node-version: 22.x
           registry-url: https://registry.npmjs.org
 
+      - name: 安装全局依赖
+        run: |
+          npm ci
+          cd scripts
+          chmod +x detect_changes.sh workflow_dispatch.sh pub.sh
+
+      - name: 检测子包变更情况（推送代码时触发）
+        if: github.event_name == 'push'
+        id: detect-changes
+        run: |
+          ./scripts/detect_changes.sh
+
+      - name: 检测子包变更情况（手动触发时触发）
+        if: github.event_name == 'workflow_dispatch'
+        id: workflow-changes
+        env:
+          INPUT_PACKAGE: ${{ github.event.inputs.package }}
+        run: |
+          ./workflow_dispatch.sh
+
       - name: 发布到 npm
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          UPDATE_PACKAGES: ${{ env.UPDATE_PACKAGES }}
         run: |
-          chmod +x ./scripts/pub.sh
           ./scripts/pub.sh

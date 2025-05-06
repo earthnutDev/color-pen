@@ -1,4 +1,6 @@
-import { csi, esc, terminalRegExp } from './esc';
+import { csi, esc, terminalRegExp as t } from './esc';
+
+const terminalRegExp = t();
 
 describe('测试 esi 相关的内容 ', () => {
   beforeEach(() => {

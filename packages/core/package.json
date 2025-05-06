@@ -1,0 +1,31 @@
+{
+  "name": "color-pen",
+  "type": "module",
+  "private": true,
+  "version": "2.0.0",
+  "description": "一个用于终端的彩 🖊️",
+  "scripts": {
+    "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
+    "clean:package": "node scripts/clean-package-json.js",
+    "build": "jja rm dist && npm run b && npm run clean:package",
+    "dev": "jja cls rm .eg && rollup --config rollup.eg.config.js && node .eg/index.mjs",
+    "diff": "jja pkg --diff",
+    "eslint": "jja cls && eslint src",
+    "beautify": "npm run eslint && npm run prettier",
+    "prettier": "jja cls && prettier . --write",
+    "prepare": "husky",
+    "test": "jja rm dist && lint-staged && jest --coverage",
+    "report": "cat ./coverage/lcov.info | coveralls",
+    "coverage": "codecov",
+    "preview": "node example/index.js",
+    "push:version": "gvv",
+    "push:submit": "gvv",
+    "vjj": "vjj -b",
+    "prepublishOnly": "pjj"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "a-js-tools": ">=0.6.1 <1.0.0",
+    "a-type-of-js": ">=0.2.0 <1.0.0"
+  }
+}
