@@ -72,6 +72,6 @@ jobs:
       - name: 发布到 npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          UPDATE_PACKAGES: ${{ env.UPDATE_PACKAGES }}
+          UPDATE_PACKAGES: ${{ env.update_packages }}
         run: |
           ./scripts/pub.sh

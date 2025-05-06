@@ -74,5 +74,9 @@ main() {
 }
 
 echo "准备好了么"
+    echo ${CHANGED_PACKAGES}
+    echo ${PACKAGE_ARRAY}
 main
+    echo ${CHANGED_PACKAGES}
+    echo ${PACKAGE_ARRAY}
 echo "哈哈，执行 🎊 🎊 🎊"
