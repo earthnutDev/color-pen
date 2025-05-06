@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "风来"
+echo "🌬️ 来"
 
 # 进入包工厂
 if ! cd "packages"; then 
@@ -8,12 +8,17 @@ if ! cd "packages"; then
     exit 1;
 fi
 
+echo "☁️ 来"
+
+echo "$CHANGED_PACKAGES"
 # 获取环境变量中的变更包字符串
 CHANGED_PACKAGES=$CHANGED_PACKAGES
 
+echo "$CHANGED_PACKAGES"
 # 将字符串转为数组
 IFS=',' read -r -a PACKAGE_ARRAY <<< "$CHANGED_PACKAGES"
 
+echo "$PACKAGE_ARRAY"
  
 update_version() {
     local input="$1"
@@ -68,4 +73,6 @@ main() {
     done   
 }
 
+echo "准备好了么"
 main
+echo "哈哈，执行 🎊 🎊 🎊"
