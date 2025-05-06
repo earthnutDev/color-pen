@@ -10,13 +10,13 @@ fi
 
 echo "☁️ 来"
 
-echo "$CHANGED_PACKAGES"
+echo "$UPDATE_PACKAGES"
 # 获取环境变量中的变更包字符串
-CHANGED_PACKAGES=$CHANGED_PACKAGES
+UPDATE_PACKAGES=$UPDATE_PACKAGES
 
-echo "$CHANGED_PACKAGES"
+echo "$UPDATE_PACKAGES"
 # 将字符串转为数组
-IFS=',' read -r -a PACKAGE_ARRAY <<< "$CHANGED_PACKAGES"
+IFS=',' read -r -a PACKAGE_ARRAY <<< "$UPDATE_PACKAGES"
 
 echo "$PACKAGE_ARRAY"
  
@@ -64,7 +64,7 @@ update_version() {
 }
 
 main() {
-    echo ${CHANGED_PACKAGES}
+    echo ${UPDATE_PACKAGES}
     echo ${PACKAGE_ARRAY}
     # 遍历变更的包数组，进行 npm 包推送
     for package in "${PACKAGE_ARRAY[@]}"; do
@@ -74,9 +74,9 @@ main() {
 }
 
 echo "准备好了么"
-    echo ${CHANGED_PACKAGES}
+    echo ${UPDATE_PACKAGES}
     echo ${PACKAGE_ARRAY}
 main
-    echo ${CHANGED_PACKAGES}
+    echo ${UPDATE_PACKAGES}
     echo ${PACKAGE_ARRAY}
 echo "哈哈，执行 🎊 🎊 🎊"
