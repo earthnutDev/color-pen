@@ -1,7 +1,10 @@
 #!/bin/bash
 
+echo "风来"
+
 # 进入包工厂
 if ! cd "packages"; then 
+    echo '进入 packages 文件夹失败'
     exit 1;
 fi
 
