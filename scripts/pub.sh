@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+# 获取环境变量中的变更包字符串
+UPDATE_PACKAGES=$UPDATE_PACKAGES
+
+
 echo "🌬️ 来"
 
 # 进入包工厂
@@ -11,8 +16,6 @@ fi
 echo "☁️ 来"
 
 echo "$UPDATE_PACKAGES"
-# 获取环境变量中的变更包字符串
-UPDATE_PACKAGES=$UPDATE_PACKAGES
 
 echo "$UPDATE_PACKAGES"
 # 将字符串转为数组

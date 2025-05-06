@@ -45,7 +45,8 @@ check_version() {
 
   echo "开始校验是否通过包版本审视"
   if npx @qqi/check-version name=$input; then
-    echo "\n校验通过 ${NAME}"
+    echo "校验通过 ${NAME}"
+    echo "UPDATE_PACKAGE_ARRAY 追加数据：$PACKAGE_DIR"
     UPDATE_PACKAGE_ARRAY+=("$PACKAGE_DIR")
     return 0
   else
@@ -59,6 +60,8 @@ main() {
   for PACKAGE_NAME in ${CHANGED_PACKAGE_ARRAY[@]}; do 
      check_version "$PACKAGE_NAME"
   done
+
+  echo "校验版本数据完毕 ${UPDATE_PACKAGE_ARRAY}"
 
   # 将数组转为逗号分隔的字符串
   UPDATE_PACKAGES=$(IFS=,; echo "${UPDATE_PACKAGE_ARRAY[*]}")
