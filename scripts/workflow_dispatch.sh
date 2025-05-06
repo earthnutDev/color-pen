@@ -48,6 +48,7 @@ check_version() {
     echo "校验通过 ${NAME}"
     echo "UPDATE_PACKAGE_ARRAY 追加数据：$PACKAGE_DIR"
     UPDATE_PACKAGE_ARRAY+=("$PACKAGE_DIR")
+    echo "当前的 ${UPDATE_PACKAGE_ARRAY}"
     return 0
   else
     echo "\n校验未通过 ${NAME}"
