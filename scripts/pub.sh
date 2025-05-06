@@ -56,8 +56,11 @@ update_version() {
 }
 
 main() {
+    echo ${CHANGED_PACKAGES}
+    echo ${PACKAGE_ARRAY}
     # 遍历变更的包数组，进行 npm 包推送
     for package in "${PACKAGE_ARRAY[@]}"; do
+        echo "当前执行的推送为 $package"
         update_version "$package"
     done   
 }

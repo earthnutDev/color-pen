@@ -67,7 +67,7 @@ jobs:
         env:
           INPUT_PACKAGE: ${{ github.event.inputs.package }}
         run: |
-          ./workflow_dispatch.sh
+          ./scripts/workflow_dispatch.sh
 
       - name: 发布到 npm
         env:
