@@ -15,13 +15,8 @@ fi
 
 echo "☁️ 来"
 
-echo "$UPDATE_PACKAGES"
-
-echo "$UPDATE_PACKAGES"
 # 将字符串转为数组
 IFS=',' read -r -a PACKAGE_ARRAY <<< "$UPDATE_PACKAGES"
-
-echo "$PACKAGE_ARRAY"
  
 update_version() {
     local input="$1"
@@ -55,7 +50,6 @@ update_version() {
     fi
     
     echo "开始发布 $NAME npm 包"
-    exit 1;
     if ! npm publish --provenance --access public --tag ${TAG} ; then
         echo "$NAME 发布失败" 
         return 0
@@ -77,9 +71,5 @@ main() {
 }
 
 echo "准备好了么"
-    echo ${UPDATE_PACKAGES}
-    echo ${PACKAGE_ARRAY}
 main
-    echo ${UPDATE_PACKAGES}
-    echo ${PACKAGE_ARRAY}
 echo "哈哈，执行 🎊 🎊 🎊"
