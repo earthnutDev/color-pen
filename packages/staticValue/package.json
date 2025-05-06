@@ -1,5 +1,5 @@
 {
-  "name": "@color/static",
+  "name": "@color-pen/static",
   "type": "module",
   "version": "0.0.0",
   "description": "color-pen 的静态数据值，在 color-pen 中已有导出",
