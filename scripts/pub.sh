@@ -3,13 +3,16 @@
 
 # 获取环境变量中的变更包字符串
 UPDATE_PACKAGES=$UPDATE_PACKAGES
-
+# 执行根路径
+REPO_ROOT=$REPO_ROOT
 
 echo "🌬️ 来"
 
+echo "工作根路径 $REPO_ROOT"
+
 # 进入包工厂
-if ! cd "packages"; then 
-    echo '进入 packages 文件夹失败'
+if ! cd "${REPO_ROOT}/packages"; then 
+    echo "进入 ${REPO_ROOT}/packages 文件夹失败"
     exit 1;
 fi
 
@@ -21,8 +24,9 @@ IFS=',' read -r -a PACKAGE_ARRAY <<< "$UPDATE_PACKAGES"
 update_version() {
     local input="$1"
     local NAME=$(echo "${input//-/ }" | tr -s ' ') # 替换 - 为空格并删除重复的空格
-    if ! cd "$1"; then 
-        echo "进入项目 $NAME 故障"
+    local CWD="${REPO_ROOT}/packages/$input"
+    if ! cd "$CWD"; then 
+        echo "进入项目 $NAME 故障，路径为 ${CWD}"
         return 0
     fi
 
@@ -56,8 +60,6 @@ update_version() {
     fi
     
     echo "🚀🚀 $NAME  发布成功，完结 🎉🎉 撒花 🎉🎉"
-
-    cd "../"
 }
 
 main() {
