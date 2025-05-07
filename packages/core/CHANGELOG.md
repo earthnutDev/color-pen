@@ -1,5 +1,9 @@
 # color pen
 
+## v2.0.2 （5 🈷️ 8 日 2025 年）
+
+- 更新版本号玩
+
 ## v2.0.1 （5 🈷️ 6 日 2025 年）
 
 - v2 版本移除了 `esc`、`csi`、`terminalResetStyle`、`terminalRegExp` ，现在使用需单独安装 [@color-pen/static](https://www.npmjs.com/package/@color-pen/static)
