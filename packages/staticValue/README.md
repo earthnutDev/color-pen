@@ -51,7 +51,7 @@ pen.red`我是红色的文本${terminalResetStyle.concat('其实，在使用 ter
 
 ### `terminalRegExp` 正则
 
-一段长的 ANSI 正则字符串，用于判断字符串是否包含 ANSI 转义或是清理字符串中的 ANSI 转义码。
+生成一段长的 ANSI 正则字符串，用于判断字符串是否包含 ANSI 转义或是清理字符串中的 ANSI 转义码。
 
 ```ts
 import { terminalRegExp } from 'color-pen';
@@ -70,3 +70,7 @@ tempRegExp.latestIndex = 0;
 
 console.log(tempRegExp.test('\x1b[38;5;236m')); // true
 ```
+
+## 文档地址
+
+[@color-pen/static](https://earthnut.dev/color-pen/static)

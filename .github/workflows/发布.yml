@@ -3,7 +3,7 @@ on:
   push:
     branches: '*'
     paths:
-      - 'packages/core/*' # 主包更新
+      - 'packages/**' # 主包更新
       - 'package.json' # 全局依赖
   workflow_dispatch: # 手动触发
     inputs:
@@ -17,6 +17,7 @@ on:
         type: choice
         options:
           - core
+          - staticValue
           - all
         default: 'all'
 
@@ -74,6 +75,7 @@ jobs:
           echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
 
       - name: 发布到 npm
+        if: ${{ env.update_packages && env.update_packages != '' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           UPDATE_PACKAGES: ${{ env.update_packages }}

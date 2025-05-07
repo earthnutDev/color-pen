@@ -2,7 +2,7 @@
   "name": "@color-pen/static",
   "type": "module",
   "version": "0.0.1",
-  "description": "color-pen 的静态数据值，在 color-pen 中已有导出",
+  "description": "一点点 🤏 color-pen 的静态数据值",
   "scripts": {
     "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
     "build": "jja rm dist && npm run  b && npm run clean:package-json",
