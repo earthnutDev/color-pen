@@ -1,18 +1,55 @@
 import { generatePen } from './src/pen';
-import { Pen } from './src/types';
 
-export { esc, csi, terminalResetStyle, terminalRegExp } from './src/esc';
+export { generatePen };
 
-/**
- *
- * 使用彩色 🖌️ 在终端上 ✍️ 彩色字
- *
- *
- */
-const pen: Pen = new generatePen([]);
-
-export { pen, pen as colorPen, generatePen };
-export default pen;
+export {
+  pen,
+  redPen,
+  bluePen,
+  greenPen,
+  yellowPen,
+  magentaPen,
+  cyanPen,
+  whitePen,
+  brightBlackPen,
+  brightRedPen,
+  brightGreenPen,
+  brightYellowPen,
+  brightBluePen,
+  brightMagentaPen,
+  brightCyanPen,
+  brightWhitePen,
+  bgBlackPen,
+  bgRedPen,
+  bgGreenPen,
+  bgYellowPen,
+  bgBluePen,
+  bgMagentaPen,
+  bgCyanPen,
+  bgWhitePen,
+  bgBrightBlackPen,
+  bgBrightRedPen,
+  bgBrightGreenPen,
+  bgBrightYellowPen,
+  bgBrightBluePen,
+  bgBrightMagentaPen,
+  bgBrightCyanPen,
+  bgBrightWhitePen,
+  boldPen,
+  italicPen,
+  underlinePen,
+  hidePen,
+  rgbPen,
+  hexPen,
+  colorPen,
+  bgRgbPen,
+  bgHexPen,
+  bgColorPen,
+  randomPen,
+  bgRandomPen,
+  numberPen,
+  bgNumberPen,
+} from './src/penList';
 
 export type {
   Pen,

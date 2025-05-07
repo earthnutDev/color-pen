@@ -1,4 +1,5 @@
-import { csi } from '../esc';
+import { csi } from '@color-pen/static';
+import { beforeBuild } from './beforeBuild';
 
 /**
  *
@@ -19,6 +20,9 @@ export function buildResultStr(str: string, kinds: string[]): string {
   }
   const hasColorStart = str.indexOf(csi);
   const hasColorEnd = str.indexOf(`${csi}0m`);
+
+  kinds = beforeBuild(kinds);
+
   if (hasColorStart > -1 && hasColorEnd > -1) {
     return buildResultStr(str.substring(0, hasColorStart), kinds)
       .concat(str.substring(hasColorStart, hasColorEnd + 4))

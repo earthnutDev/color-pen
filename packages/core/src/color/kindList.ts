@@ -1,4 +1,3 @@
-import { getRandomInt } from 'a-js-tools';
 import { StringKindList, FunctionKindList } from '../types';
 import { generateRgb } from './generateRgb';
 import { generateColor } from './generateColor';
@@ -50,13 +49,13 @@ export const kindList: StringKindList & FunctionKindList = {
   blink: '5',
   reversed: '7',
   hide: '8',
-  random: () => `38;5;${getRandomInt(255)}`,
+  random: 'random',
+  bgRandom: 'bgRandom',
   rgb: (r: string | number, g?: number, b?: number) => generateRgb(r, g, b),
   hex: (hex: string) => generateHex(hex),
   color: (color: string | number, g?: number, b?: number) =>
     generateColor(color, g, b),
   number: (n: number) => generateNumber(n, true),
-  bgRandom: () => `48;5;${getRandomInt(255)}`,
   bgRgb: (r: string | number, g?: number, b?: number) =>
     generateRgb(r, g, b, false),
   bgHex: (hex: string) => generateHex(hex, false),

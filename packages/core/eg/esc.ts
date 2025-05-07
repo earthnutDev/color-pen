@@ -1,6 +1,6 @@
 import assert from 'node:assert';
-import { terminalRegExp as t } from '../src/esc';
-import pen from '../index';
+import { terminalRegExp as t } from '@color-pen/static';
+import { pen } from '../index';
 import { dev } from '@qqi/dev-log';
 
 dev.skip('测试与 ANSI 相关的代码', async it => {

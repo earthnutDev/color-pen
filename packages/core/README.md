@@ -10,68 +10,10 @@
 
 ## ANSI 模块相关
 
-- `esc` ANSI 转义符
-- `csi` CSI（Control Sequence Introducer）带 `[` 的 `esc` 字符串 `\u001b[` 或者是 `\x1b`
-- `terminalResetStyle` 重置属性样式，即 `\x1b[0m`
-- `terminalRegExp` 一个用于创建 ANSI 的正则字符串的函数，可用与判断字符串是否包含 ANSI 转义或是清理
 - `strInTerminalLength` 获取字符串在终端显示的长度
 - `truncateStringWithChar` 以在终端的长度截断字符串
 - `strInOneLineOnTerminal` 在终端中以一行的形式展示字符串（不影响单行内的换行符）
 - `colorText` 一个可用与浏览器环境的简单的文本色
-
-### `esc`
-
-`esc` 表示 ANSI 的控制序列前缀描述，即 `\x1b` 或者是 `\u001b`。
-
-```ts
-import { esc } from 'color-pen';
-// 光标向上
-const cursorMoveUpStr = esc.concat('[2A');
-
-console.log(cursorMoveUpStr);
-```
-
-### `csi`
-
-`csi` 表示 ANSI 的控制序列，即 `\x1b[` 或者是 `\u001b[`。
-
-```ts
-import { csi } from 'color-pen';
-// 光标向上
-const cursorMoveUpStr = csi.concat('2A');
-
-console.log(cursorMoveUpStr);
-```
-
-### `terminalResetStyle`
-
-`terminalRestStyle` 表示 ANSI 的属性重置，即 `\x1b[0m` 或 `\u001b[0m` 或 `\x1b[m` 或 `\u001b[m`。
-
-```ts
-import { pen, terminalResetStyle } from 'color-pen';
-
-pen.red`我是红色的文本${terminalResetStyle.concat('其实，在使用 terminalResetStyle 的时候会被截断，而最后的返回，这里也是红的')}我也是红色的`;
-```
-
-### `terminalRegExp` 正则
-
-一段长的 ANSI 正则字符串，用于判断字符串是否包含 ANSI 转义或是清理字符串中的 ANSI 转义码。
-
-```ts
-import { terminalRegExp } from 'color-pen';
-
-terminalRegExp.latestIndex = 0;
-
-console.log(terminalRegExp.test('\x1b[0m')); // true
-
-terminalRegExp.latestIndex = 0;
-
-console.log(terminalRegExp.test('\x1b[?25l')); // true
-
-terminalRegExp.latestIndex = 0;
-
-console.log(terminalRegExp.test('\x1b[38;5;236m')); // true
-```
 
 ### `strInTerminalLength` 字符串在终端显示的长度
 
@@ -136,7 +78,7 @@ console.log(...colorTextArr);
 |  `bgBrightCyan`   |                      |                       |
 |  `bgBrightWhite`  | `rgb(255 ,255 ,255)` |       `#ffffff`       |
 
-###
+### pen 方法
 
 - `bg` 开头的是配置背景色
 - `hex` 以 16 进制值配置文本色
@@ -175,6 +117,7 @@ pen.color(0x0000ff)`期待是蓝色文本`; // 其实输出的是任意色的文
 注意 _从 v1.0.0 版本开始，pen 正式接受模版函数调用方式_
 
 ```ts
+import { pen } from 'color-pen';
 import { Dog } from '@qqi/dev-log';
 
 const dog = new Dog({
@@ -221,6 +164,88 @@ dog(redBoldPen('红色粗体文本')); // 输出红色粗体文本
 
 dog(redBoldPen.italic('红色粗体斜体文本')); // 输出红色粗体斜体文本
 ```
+
+## 笔柜
+
+v2 版本导出了简单样式的笔。在同一个项目中，重复使用同一个由 [pen](#使用-pen) 构建的同样式 🖊️ 有助于性能优化。
+因为每一次使用 `pen` 构建一个样式的笔就将创建一个闭包。
+
+```ts
+import { redPen, bluePen } from 'color-pen';
+import { Dog } from '@qqi/dev-log';
+
+const dog = new Dog({
+  name: 'color pen',
+  type: 'error',
+});
+
+dog(redPen`红色的文本`);
+dog(bluePen`蓝色的文本`);
+
+... // 其他色文本的笔皆单独导出
+```
+
+当然，你也可以创建自己的独有样式的 🖊️。例如，若想创建红色的粗体 🖊️：
+
+```ts
+import { pen, redPen, boldPen } from 'color-pen';
+
+const redBoldPen1 = pen.red.bold;
+const redBoldPen2 = redPen.bold;
+const redBoldPen3 = boldPen.red;
+
+console.log(redBoldPen1`红色文本`);
+console.log(redBoldPen2`红色文本`);
+console.log(redBoldPen3`红色文本`);
+```
+
+尽管可以使用三种方式创建，但他们不相等
+
+- `redPen` 初始化的红色笔
+- `bluePen` 初始化的蓝色 🖊️
+- `greenPen` 初始化的绿色 🖊️
+- `yellowPen` 初始化的黄色 🖊️
+- `magentaPen` 初始化的洋红 🖊️
+- `cyanPen` 初始化的青 🖊️
+- `whitePen` 初始化的白 🖊️
+- `brightBlackPen` 初始化的亮黑 🖊️
+- `brightRedPen` 初始化的亮红 🖊️
+- `brightGreenPen` 初始化的亮绿 🖊️
+- `brightYellowPen` 初始化的亮黄 🖊️
+- `brightBluePen` 初始化的亮蓝 🖊️
+- `brightMagentaPen` 初始化的亮杨红 🖊️
+- `brightCyanPen` 初始化的青 🖊️
+- `brightWhitePen` 初始化的亮白 🖊️
+- `bgBlackPen` 初始化的黑色背景 🖊️
+- `bgRedPen` 初始化的红色背景 🖊️
+- `bgGreenPen` 初始化的绿色背景 🖊️
+- `bgYellowPen` 初始化的黄色背景 🖊️
+- `bgBluePen` 初始化的蓝色背景 🖊️
+- `bgMagentaPen` 初始化的杨红色背景 🖊️
+- `bgCyanPen` 初始化的青色背景 🖊️
+- `bgWhitePen` 初始化的白色背景 🖊️
+- `bgBrightBlackPen` 初始化的亮黑色背景 🖊️
+- `bgBrightRedPen` 初始化的色亮红背景 🖊️
+- `bgBrightGreenPen` 初始化的色亮绿背景 🖊️
+- `bgBrightYellowPen` 初始化的色亮黄背景 🖊️
+- `bgBrightBluePen` 初始化的亮蓝色背景 🖊️
+- `bgBrightMagentaPen` 初始化的亮杨红色背景 🖊️
+- `bgBrightCyanPen` 初始化的亮青色背景 🖊️
+- `bgBrightWhitePen` 初始化的亮白色背景 🖊️
+- `boldPen` 初始化的粗体 🖊️
+- `italicPen` 初始化的斜体 🖊️
+- `underlinePen` 初始化的带下划线 🖊️
+- `hidePen` 初始化的隐藏文本 🖊️
+- `rgbPen` 初始化的使用 rgb 创建色值的 🖊️
+- `hexPen` 初始化的使用 hex 创建色值的 🖊️
+- `colorPen` 初始化的使用 rgb 或 hex 创建色值的 🖊️
+- `bgRgbPen` 初始化的使用 rgb 创建背景色的 🖊️
+- `bgHexPen` 初始化的使用 hex 创建背景色的 🖊️
+- `bgColorPen` 初始化的使用 rgb 或 hex 创建背景色 🖊️
+- `randomPen` 初始化的随机文本色的 🖊️
+- `bgRandomPen` 初始化的随机背景色的 🖊️
+- `numberPen` 初始化的使用 ANSI 转义的 🖊️
+- `bgNumberPen` 初始化的使用 ANSI 转义的背景色的 🖊️
 
 ## 文档地址
 

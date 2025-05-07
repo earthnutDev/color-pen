@@ -1,5 +1,58 @@
 # color pen
 
+## v2.0.1 （5 🈷️ 6 日 2025 年）
+
+- v2 版本移除了 `esc`、`csi`、`terminalResetStyle`、`terminalRegExp` ，现在使用需单独安装 [@color-pen/static](https://www.npmjs.com/package/@color-pen/static)
+- 修复了 `kindList.blue` 的注释
+
+### ✨ 添加了
+
+- `redPen` 初始化的红色笔
+- `bluePen` 初始化的蓝色 🖊️
+- `greenPen` 初始化的绿色 🖊️
+- `yellowPen` 初始化的黄色 🖊️
+- `magentaPen` 初始化的洋红 🖊️
+- `cyanPen` 初始化的青 🖊️
+- `whitePen` 初始化的白 🖊️
+- `brightBlackPen` 初始化的亮黑 🖊️
+- `brightRedPen` 初始化的亮红 🖊️
+- `brightGreenPen` 初始化的亮绿 🖊️
+- `brightYellowPen` 初始化的亮黄 🖊️
+- `brightBluePen` 初始化的亮蓝 🖊️
+- `brightMagentaPen` 初始化的亮杨红 🖊️
+- `brightCyanPen` 初始化的青 🖊️
+- `brightWhitePen` 初始化的亮白 🖊️
+- `bgBlackPen` 初始化的黑色背景 🖊️
+- `bgRedPen` 初始化的红色背景 🖊️
+- `bgGreenPen` 初始化的绿色背景 🖊️
+- `bgYellowPen` 初始化的黄色背景 🖊️
+- `bgBluePen` 初始化的蓝色背景 🖊️
+- `bgMagentaPen` 初始化的杨红色背景 🖊️
+- `bgCyanPen` 初始化的青色背景 🖊️
+- `bgWhitePen` 初始化的白色背景 🖊️
+- `bgBrightBlackPen` 初始化的亮黑色背景 🖊️
+- `bgBrightRedPen` 初始化的色亮红背景 🖊️
+- `bgBrightGreenPen` 初始化的色亮绿背景 🖊️
+- `bgBrightYellowPen` 初始化的色亮黄背景 🖊️
+- `bgBrightBluePen` 初始化的亮蓝色背景 🖊️
+- `bgBrightMagentaPen` 初始化的亮杨红色背景 🖊️
+- `bgBrightCyanPen` 初始化的亮青色背景 🖊️
+- `bgBrightWhitePen` 初始化的亮白色背景 🖊️
+- `boldPen` 初始化的粗体 🖊️
+- `italicPen` 初始化的斜体 🖊️
+- `underlinePen` 初始化的带下划线 🖊️
+- `hidePen` 初始化的隐藏文本 🖊️
+- `rgbPen` 初始化的使用 rgb 创建色值的 🖊️
+- `hexPen` 初始化的使用 hex 创建色值的 🖊️
+- `colorPen` 初始化的使用 rgb 或 hex 创建色值的 🖊️
+- `bgRgbPen` 初始化的使用 rgb 创建背景色的 🖊️
+- `bgHexPen` 初始化的使用 hex 创建背景色的 🖊️
+- `bgColorPen` 初始化的使用 rgb 或 hex 创建背景色 🖊️
+- `randomPen` 初始化的随机文本色的 🖊️
+- `bgRandomPen` 初始化的随机背景色的 🖊️
+- `numberPen` 初始化的使用 ANSI 转义的 🖊️
+- `bgNumberPen` 初始化的使用 ANSI 转义的背景色的 🖊️
+
 ## v2.0.0 （5 🈷️ 5 日 2025 年）
 
 - `terminalRegExp` 从 v2 版本及之后的将由正则转化为一个函数，用于正确使用这个带有 `g` 标签的正则。以满足 lastIndex 的正确使用

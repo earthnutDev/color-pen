@@ -1,6 +1,7 @@
 import { dev } from '@qqi/dev-log';
-import pen, { terminalResetStyle } from '../index';
+import { pen } from '../index';
 import assert from 'node:assert';
+import { terminalResetStyle } from '@color-pen/static';
 
 dev.skip('测验模版函数', async it => {
   it('', () => {

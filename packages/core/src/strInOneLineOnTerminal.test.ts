@@ -1,4 +1,4 @@
-import { csi } from './esc';
+import { csi } from '@color-pen/static';
 import { strInOneLineOnTerminal } from './strInOneLineOnTerminal';
 
 describe('测试文本在一行显示', () => {

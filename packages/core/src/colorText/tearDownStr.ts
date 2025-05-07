@@ -1,5 +1,5 @@
 import { isNull, isUndefined } from 'a-type-of-js';
-import { terminalRegExp } from '../esc';
+import { terminalRegExp } from '@color-pen/static';
 import { ResultItem } from './resultItem';
 
 /**

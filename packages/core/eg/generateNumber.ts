@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 import { dev } from '@qqi/dev-log';
-import pen from '../index';
+import { pen } from '../index';
 import assert from 'node:assert';
 
 dev.skip('测试 ANSI 色值数值', async it => {

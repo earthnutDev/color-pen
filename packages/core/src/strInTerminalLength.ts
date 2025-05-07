@@ -1,4 +1,4 @@
-import { terminalRegExp } from './esc';
+import { terminalRegExp } from '@color-pen/static';
 import { isTwoLen } from './isTwoLen';
 
 /**

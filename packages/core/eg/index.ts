@@ -10,3 +10,5 @@ import './strInTerminalLen';
 import './terminalRegExp';
 
 import './colorText';
+
+import './pen';

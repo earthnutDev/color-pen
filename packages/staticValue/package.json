@@ -1,7 +1,7 @@
 {
   "name": "@color-pen/static",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "color-pen 的静态数据值，在 color-pen 中已有导出",
   "scripts": {
     "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
@@ -11,6 +11,8 @@
     "eslint": "jja cls && eslint src",
     "beautify": "npm run prettier",
     "prettier": "jja cls && prettier . --write",
+    "prepublishOnly": "pjj",
+    "vjj": "vjj",
     "test": "jja cls && rollup --config rollup.config.test.js && node test/out/test/index.mjs"
   },
   "license": "MIT"

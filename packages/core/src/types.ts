@@ -88,7 +88,9 @@ export type Pen = {
         : // 使用数值设置色值
           key extends 'number' | 'bgNumber'
           ? (n: number) => Pen
-          : Pen;
+          : key extends 'random' | 'bgRandom'
+            ? Pen
+            : Pen;
 } & {
   (strList: TemplateStringsArray, ...paramsList: string[]): string;
 } & { (text: string): string };
@@ -145,7 +147,7 @@ export type StringKindList = {
    *
    * 16 进制色值：   <span style="color:#400ad9;">#400ad9</span>
    *
-   * RGB 色值：    <span style="color:#400ad9;">rgb(160 ,160 ,29)</span>
+   * RGB 色值：    <span style="color:#400ad9;">rgb(64 ,10 ,217)</span>
    *
    */
   blue: string;
@@ -321,7 +323,7 @@ export type StringKindList = {
    *
    * 16 进制色值：   <span style="color:#400ad9;">#400ad9</span>
    *
-   * RGB 色值：    <span style="color:#400ad9;">rgb(160 ,160 ,29)</span>
+   * RGB 色值：    <span style="color:#400ad9;">rgb(64 ,10 ,217)</span>
    *
    */
   bgBlue: string;
@@ -339,7 +341,7 @@ export type StringKindList = {
   /**
    *
    *
-   * <span style="color:#2daebb;">高亮青背景色</span>
+   * <span style="color:#2daebb;">青背景色</span>
    *
    * 16 进制色值： <span style="color:#2daebb;">#2daebb</span>
    *
@@ -470,6 +472,10 @@ export type StringKindList = {
   reversed: string;
   /**  隐藏文本，用于创建等宽文本很爽  */
   hide: string;
+  /**  随机色  */
+  random: 'random';
+  /**  随机背景色  */
+  bgRandom: 'bgRandom';
 };
 /**
  *
@@ -601,10 +607,6 @@ export interface FunctionKindList {
    *
    */
   bgColor(r: number, g: number, b: number): string;
-  /**  随机前景色  */
-  random(): string;
-  /**  随机背景色  */
-  bgRandom(): string;
   /**
    *  ## 直接使用数值指定终端前景色颜色
    *

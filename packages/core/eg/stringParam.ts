@@ -1,4 +1,4 @@
-import pen from '../index';
+import { pen } from '../index';
 import { dev } from '@qqi/dev-log';
 
 dev.skip('测试参数为单字符串的情况', () => {

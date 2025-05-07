@@ -16,12 +16,7 @@ export function penCaseGetter(
     newKinds = mergeValueIsString(kinds, kindList[kind]);
     return new generatePen(newKinds);
   } else {
-    if ('random' === kind || 'bgRandom' === kind) {
-      /**  随机色  */
-      const newColor = kindList[kind]();
-      newKinds = mergeValueIsString(kinds, newColor); // 随机色
-      return new generatePen(newKinds);
-    } else if ('hex' === kind || 'bgHex' === kind) {
+    if ('hex' === kind || 'bgHex' === kind) {
       return (hex: string) => {
         newKinds = mergeValueIsString(kinds, kindList[kind](hex));
         return new generatePen(newKinds);

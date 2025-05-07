@@ -1,4 +1,4 @@
-import { csi } from './esc';
+import { csi } from '@color-pen/static';
 /**
  * 让文本在终端保持在一行
  *
