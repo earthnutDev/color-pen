@@ -51,7 +51,7 @@ check_version() {
     echo "当前的 ${UPDATE_PACKAGE_ARRAY}"
     return 0
   else
-    echo "\n校验未通过 ${NAME}"
+    echo "校验未通过 ${NAME}"
     return 0
   fi
 }
