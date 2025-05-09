@@ -18,7 +18,6 @@ export default {
       exports: 'named',
       dir: 'dist/mjs',
     },
-    //  若是生成 `bin` 类型，或是生成的文件不包含 commonJs，下面导出 commonJs 的配置可是删除
     {
       format: 'cjs',
       entryFileNames: '[name].cjs',

@@ -12,3 +12,5 @@ import './terminalRegExp';
 import './colorText';
 
 import './pen';
+
+import './truncateStringWithChar';

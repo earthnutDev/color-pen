@@ -7,15 +7,17 @@ UPDATE_PACKAGES=$UPDATE_PACKAGES
 REPO_ROOT=$REPO_ROOT
 
 echo "🌬️ 来"
-
 echo "工作根路径 $REPO_ROOT"
 
-# 进入包工厂
-if ! cd "${REPO_ROOT}/packages"; then 
-    echo "进入 ${REPO_ROOT}/packages 文件夹失败"
+PACKAGES_DIR="${REPO_ROOT}/packages"
+
+if [ ! -d "$PACKAGES_DIR" ]; then
+    echo "没有找到 ${PACKAGES_DIR}"
     exit 1;
 fi
 
+# 进入包工厂
+cd "${PACKAGES_DIR}"
 echo "☁️ 来"
 
 # 将字符串转为数组
@@ -24,37 +26,33 @@ IFS=',' read -r -a PACKAGE_ARRAY <<< "$UPDATE_PACKAGES"
 update_version() {
     local input="$1"
     local NAME=$(echo "${input//-/ }" | tr -s ' ') # 替换 - 为空格并删除重复的空格
-    local CWD="${REPO_ROOT}/packages/$input"
-    if ! cd "$CWD"; then 
+    local CWD="${PACKAGES_DIR}/$input"
+    if [ ! -d "$CWD" ]; then 
         echo "进入项目 $NAME 故障，路径为 ${CWD}"
         return 0
     fi
-
+    cd "$CWD"
+    # 依赖安装 
     npm ci
-  
+    local tag=$(npx @qqi/check-version c=. 2>&1)
+    exit_code=$?
+    if [ $exit_code -ne 0 ]; then 
+      echo "版本校验失败： $tag"
+      exit 0;
+    fi
     if ! npm run build; then 
       echo "构建 $NAME 失败" 
       return 0
     fi
-    
-    VERSION=$(node -p "require('./package.json').version")
-    
-    echo "获取全称 npm version : $VERSION"
-    if [[ $VERSION =~ -([a-zA-Z0-9]+)(\.|$) ]]; then
-      TAG=${BASH_REMATCH[1]}
-      echo "捕获到 npm tag : $TAG"
-    else
-      TAG="latest"
-      echo "未捕获到 npm tag 使用默认 : $TAG"
-    fi
-    
-    if ! cd dist; then 
-      echo "未找到 $NAME dist 构建码"
+    local BUILD_DIST="${CWD}/dist"
+    if [ ! -d "${BUILD_DIST}" ]; then
+      echo "未找到 $NAME dist 构建：${BUILD_DIST}"
       return 0
     fi
+    cd "${BUILD_DIST}" 
     
     echo "开始发布 $NAME npm 包"
-    if ! npm publish --provenance --access public --tag ${TAG} ; then
+    if ! npm publish --provenance --access public --tag "${tag}" ; then
         echo "$NAME 发布失败" 
         return 0
     fi

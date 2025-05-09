@@ -1,4 +1,4 @@
-# 🖊️
+# 一个用于终端的彩 🖊️
 
 [![version](<https://img.shields.io/npm/v/color-pen.svg?logo=npm&logoColor=rgb(0,0,0)&label=版本号&labelColor=rgb(73,73,228)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/color-pen) [![Coverage Status](<https://img.shields.io/coverallsCoverage/github/earthnutDev/color-pen?logo=coveralls&label=coveralls&labelColor=rgb(12, 244, 39)&color=rgb(0,0,0)>)](https://coveralls.io/github/earthnutDev/color-pen?branch=main) [![codecov](<https://img.shields.io/codecov/c/github/earthnutDev/color-pen/main?logo=codecov&label=codecov&labelColor=rgb(7, 245, 245)&color=rgb(0,0,0)>)](https://codecov.io/gh/earthnutDev/color-pen) [![issues 提交](<https://img.shields.io/badge/issues-提交-rgb(255,0,63)?logo=github>)](https://github.com/earthnutDev/color-pen/issues)
 

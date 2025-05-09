@@ -1,5 +1,6 @@
 import { csi } from '@color-pen/static';
 import { beforeBuild } from './beforeBuild';
+import { isEmptyArray, isEmptyString } from 'a-type-of-js';
 
 /**
  *
@@ -12,10 +13,11 @@ import { beforeBuild } from './beforeBuild';
  */
 export function buildResultStr(str: string, kinds: string[]): string {
   str = str.toString();
-  if (str.length === 0) {
+  if (isEmptyString(str)) {
     return '';
   }
-  if (kinds.length === 0) {
+
+  if (isEmptyArray(kinds)) {
     return str;
   }
   const hasColorStart = str.indexOf(csi);

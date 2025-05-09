@@ -14,9 +14,7 @@ export function generateRgb(
   try {
     return generateColor(r, g, b, foreground);
   } catch (error) {
-    if (process.env.COLOR_PEN_DEV === 'true') {
-      console.error(error);
-    }
+    console.error(error);
     throw new TypeError(
       '使用 rgb() 或 bgRgb() 时，参数可以为单字符串 `"rgb(r, g, b)"` 或三个数值  `r , g ,b`。不接受其他格式',
     );

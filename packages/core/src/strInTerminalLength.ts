@@ -27,8 +27,9 @@ import { isTwoLen } from './isTwoLen';
 export function strInTerminalLength(str: string): number {
   const _t = terminalRegExp();
   // 去除终端控制字符
-  return str
-    .replace(_t, '')
-    .split('')
-    .reduce((len, code) => len + 1 + Number(isTwoLen(code)), 0);
+  const noANSIStr = str.replace(_t, '');
+  let strLen = 0;
+  for (let i = 0, j = noANSIStr.length; i < j; i++)
+    strLen += 1 + Number(isTwoLen(noANSIStr[i]));
+  return strLen;
 }

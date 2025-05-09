@@ -3,7 +3,7 @@ import { buildResultStr } from './color/buildResultStr';
 import { kindList } from './color/kindList';
 import { penCaseGetter } from './penCaseGetter';
 import { FunctionKindList, Pen, StringKindList } from './types';
-import { isArray, isString, isType } from 'a-type-of-js';
+import { isArray, isEmptyArray, isString, isType } from 'a-type-of-js';
 
 /**
  *
@@ -19,7 +19,7 @@ function generatePen(kinds: string[] = []): Pen {
    * 用来装置样式
    **************************/
   const penCase = (str: string | TemplateStringsArray, ...arg: string[]) => {
-    if (isString(str) && arg.length === 0) {
+    if (isString(str) && isEmptyArray(arg)) {
       return buildResultStr(str, kinds);
     } else if (
       isType<TemplateStringsArray>(

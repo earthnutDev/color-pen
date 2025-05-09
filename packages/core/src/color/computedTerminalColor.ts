@@ -1,5 +1,5 @@
 import { getRandomInt } from 'a-js-tools';
-import { isArray, isNumber, isString } from 'a-type-of-js';
+import { isArray, isFalse, isNumber, isString, isTrue } from 'a-type-of-js';
 
 /**
  *
@@ -25,7 +25,7 @@ export function computedTerminalColor(
   color: string | number | number[],
   isHex: boolean = true,
 ): number {
-  if (true === isHex) {
+  if (isTrue(isHex)) {
     /// color 为 string
     if (isString(color)) {
       if (color.startsWith('0x')) {
@@ -40,7 +40,7 @@ export function computedTerminalColor(
         '`color` must be a string or number but not number[] when isHex is true',
       );
     }
-  } else if (isHex === false) {
+  } else if (isFalse(isHex)) {
     if (isArray(color)) {
       if (color.some(item => !isFinite(item)) || color.length !== 3) {
         throw new TypeError(

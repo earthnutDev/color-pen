@@ -1,3 +1,5 @@
+import { isTrue } from 'a-type-of-js';
+
 /**
  *
  * 将新样式文本追加到样式文本数组中
@@ -12,7 +14,7 @@ export function mergeValueIsString(kinds: string[], kindValue: string) {
   const currentKindNumber = parseInt(kindValue);
   /**  值大于 10 时，为色值配置  */
   if (currentKindNumber > 10) {
-    const startWith = 38 === currentKindNumber ? '38;5;' : '48;5;';
+    const startWith = isTrue(38 === currentKindNumber) ? '38;5;' : '48;5;';
     /**  判断是否已设置前景色  */
     const lastExistKindIndex = kinds.findIndex(item =>
       item.startsWith(startWith),

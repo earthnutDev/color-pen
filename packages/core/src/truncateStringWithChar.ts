@@ -22,13 +22,16 @@ export function truncateStringWithChar(str: string, len: number) {
 
   let result = '';
 
-  for (const i of str) {
-    result += i;
+  for (let i = 0, j = str.length; i < j; i++) {
+    result += str[i];
     const currentLen = strInTerminalLength(result);
     if (currentLen === len) {
-      return result;
+      break;
     } else if (currentLen > len) {
-      return result.slice(0, -1).concat(' ');
+      result = result.replace(/.$/, ' ');
+      break;
     }
   }
+
+  return result;
 }

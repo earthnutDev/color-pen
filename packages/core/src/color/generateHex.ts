@@ -15,9 +15,7 @@ export function generateHex(
   try {
     return generateColor(hex, undefined, undefined, foreground);
   } catch (error) {
-    if (process.env.COLOR_PEN_DEV === 'true') {
-      console.error(error);
-    }
+    console.error(error);
     throw new TypeError(
       '使用 hex() 或 bgHex() 时，参数可以为单字符串 `"0xnnnnnn"`、`"#rgb"` 、`"#rrggbb"` 或一个数值  `0xrrggbb`。不接受其他格式',
     );
