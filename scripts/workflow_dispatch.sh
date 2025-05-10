@@ -7,6 +7,7 @@ CHANGED_PACKAGE_ARRAY=()
 # 初始化最终要更新的包的数组
 UPDATE_PACKAGE_ARRAY=()
 
+# 读取 packages 下直接子文件夹名并放入到数组 CHANGED_PACKAGE_ARRAY 中 
 while IFS= read -r PACKAGE_DIR; do 
    PACKAGE_DIR=$(echo "${PACKAGE_DIR// /?}" | tr -s '?') #  保护我方空格
    CHANGED_PACKAGE_ARRAY+=("$PACKAGE_DIR")

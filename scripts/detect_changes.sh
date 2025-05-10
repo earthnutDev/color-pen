@@ -15,8 +15,9 @@ echo "开始循环调用验证函数"
 main() {
     # 遍历变更的文件，找出变更的 packages 下的直接子文件夹
     for file in $CHANGED_FILES; do
-        if [[ $file == 'packages/*' ]]; then
+        if [[ $file == packages/* ]]; then
             PACKAGE_DIR=$(echo $file | cut -d'/' -f2)
+            # 如果其不存在于数组之中
             if [[ ! " ${CHANGED_PACKAGE_ARRAY[@]} " =~ " ${PACKAGE_DIR} " ]]; then
                 CHANGED_PACKAGE_ARRAY+=("$PACKAGE_DIR") # 文件变更数组添加元素
             fi
