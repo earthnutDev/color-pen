@@ -1,6 +1,7 @@
 import { csi } from '@color-pen/static';
 import { beforeBuild } from './beforeBuild';
-import { isEmptyArray, isEmptyString } from 'a-type-of-js';
+import { isEmptyArray, isEmptyString, isNull, isUndefined } from 'a-type-of-js';
+import { penText } from '../types';
 
 /**
  *
@@ -11,8 +12,9 @@ import { isEmptyArray, isEmptyString } from 'a-type-of-js';
  * @returns 返回一个字符串
  *
  */
-export function buildResultStr(str: string, kinds: string[]): string {
-  str = str.toString();
+export function buildResultStr(str: penText, kinds: string[]): string {
+  str = isNull(str) || isUndefined(str) ? '' : str.toString();
+
   if (isEmptyString(str)) {
     return '';
   }

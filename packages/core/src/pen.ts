@@ -2,7 +2,7 @@ import { createConstructor } from 'a-js-tools';
 import { buildResultStr } from './color/buildResultStr';
 import { kindList } from './color/kindList';
 import { penCaseGetter } from './penCaseGetter';
-import { FunctionKindList, Pen, StringKindList } from './types';
+import { FunctionKindList, Pen, penText, StringKindList } from './types';
 import { isArray, isEmptyArray, isString, isType } from 'a-type-of-js';
 
 /**
@@ -18,10 +18,8 @@ function generatePen(kinds: string[] = []): Pen {
    *
    * 用来装置样式
    **************************/
-  const penCase = (str: string | TemplateStringsArray, ...arg: string[]) => {
-    if (isString(str) && isEmptyArray(arg)) {
-      return buildResultStr(str, kinds);
-    } else if (
+  const penCase = (str: penText | TemplateStringsArray, ...arg: penText[]) => {
+    if (
       isType<TemplateStringsArray>(
         str,
         () => isArray(str) && str.every(e => isString(e)),
@@ -31,10 +29,12 @@ function generatePen(kinds: string[] = []): Pen {
       for (let i = 0; i < str.length; i++) {
         result += buildResultStr(str[i], kinds);
         if (i < arg.length) {
-          result += buildResultStr(arg[i]!.toString(), kinds);
+          result += buildResultStr(arg[i], kinds);
         }
       }
       return result;
+    } else if (isEmptyArray(arg)) {
+      return buildResultStr(str, kinds);
     } else {
       throw new Error('pen: 缺少参数');
     }

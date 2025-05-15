@@ -66,6 +66,15 @@ export type RGBFunctionWithOnlyString = (rgb: string) => Pen;
 export type RGBFunction = RGBFunctionWithThreeNumbers &
   RGBFunctionWithOnlyString;
 
+export type penText =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | bigint
+  | symbol;
+
 /**
  *
  * 🖌️
@@ -92,8 +101,8 @@ export type Pen = {
             ? Pen
             : Pen;
 } & {
-  (strList: TemplateStringsArray, ...paramsList: string[]): string;
-} & { (text: string): string };
+  (strList: TemplateStringsArray, ...paramsList: penText[]): string;
+} & { (text: penText): string };
 /**
  *
  * 属性列表

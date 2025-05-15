@@ -8,5 +8,14 @@ dev('测试各种笔的样式', it => {
     _p(randomPen`随机色值文本`);
     _p(randomPen`随机色值文本`);
     _p(randomPen`随机色值文本`);
+    _p(randomPen`随机色值文本`);
+  });
+
+  it('测试任意类型的数据', () => {
+    _p(randomPen(1));
+    _p(randomPen(undefined));
+    _p(randomPen(true));
+    _p(randomPen`hello ${true} 嗨的 ${0} ${undefined} ${null}`);
+    _p(randomPen`hello ${true} 嗨的 ${0} ${undefined} ${Symbol(121)}`);
   });
 });
