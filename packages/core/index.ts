@@ -49,6 +49,9 @@ export {
   bgRandomPen,
   numberPen,
   bgNumberPen,
+  dimPen,
+  blinkPen,
+  reversedPen,
 } from './src/penList';
 
 export type {

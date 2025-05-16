@@ -382,6 +382,15 @@ const underlinePen: Pen = new generatePen([kindList.underline]);
  *
  */
 const hidePen: Pen = new generatePen([kindList.hide]);
+
+/**  一个细一点的 笔  */
+const dimPen: Pen = new generatePen([kindList.dim]);
+
+/**  一个闪烁的笔  */
+const blinkPen: Pen = new generatePen([kindList.blink]);
+
+/**  一个反转的笔  */
+const reversedPen: Pen = new generatePen([kindList.reversed]);
 /**
  *
  * ###  使用 RGB 设置背景色
@@ -549,9 +558,9 @@ const bgNumberPen = pen.bgNumber;
 export {
   pen,
   redPen,
-  bluePen,
   greenPen,
   yellowPen,
+  bluePen,
   magentaPen,
   cyanPen,
   whitePen,
@@ -587,10 +596,13 @@ export {
   hexPen,
   colorPen,
   bgRgbPen,
+  numberPen,
   bgHexPen,
   bgColorPen,
+  bgNumberPen,
   randomPen,
   bgRandomPen,
-  numberPen,
-  bgNumberPen,
+  dimPen,
+  blinkPen,
+  reversedPen,
 };
