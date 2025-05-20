@@ -27,8 +27,10 @@ export function truncateStringWithChar(str: string, len: number) {
   let result = '';
   /**  是否有未闭合的 ANSI 转义  */
 
-  for (let i = 0, j = str.length; i < j; i++) {
-    result += str[i];
+  const strArr = [...str];
+
+  for (let i = 0, j = strArr.length; i < j; i++) {
+    result += strArr[i];
     const currentLen = strInTerminalLength(result);
     if (currentLen === len) {
       break;

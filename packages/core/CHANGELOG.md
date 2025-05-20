@@ -1,5 +1,9 @@
 # 更新日志
 
+## v2.0.7 （5 🈷️ 21 日 2025 年）
+
+- 修复表情在 `truncateStringWithChar` 造成的干扰
+
 ## v2.0.6 （5 🈷️ 21 日 2025 年）
 
 - 修改了 `truncateStringWithChar` 的算法逻辑
