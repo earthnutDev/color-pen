@@ -1,5 +1,10 @@
 # 更新日志
 
+## v2.0.6 （5 🈷️ 21 日 2025 年）
+
+- 修改了 `truncateStringWithChar` 的算法逻辑
+- 添加了 `cutoffStringWithChar` 作为 `truncateStringWithChar` 的别名（英文不好）
+
 ## v2.0.5 （5 🈷️ 17 日 2025 年）
 
 添加了几个笔

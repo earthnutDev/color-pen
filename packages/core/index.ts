@@ -63,7 +63,10 @@ export type {
 
 export { strInTerminalLength } from './src/strInTerminalLength';
 
-export { truncateStringWithChar } from './src/truncateStringWithChar';
+export {
+  truncateStringWithChar,
+  truncateStringWithChar as cutoffStringWithChar,
+} from './src/truncateStringWithChar';
 
 export { strInOneLineOnTerminal } from './src/strInOneLineOnTerminal';
 
