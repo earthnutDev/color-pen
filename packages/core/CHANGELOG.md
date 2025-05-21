@@ -1,5 +1,9 @@
 # 更新日志
 
+## v2.0.8 （5 🈷️ 22 日 2025 年）
+
+- 现在 `truncateStringWithChar` 可截取含 ANSI 转义的字符串，且支持从后面截取
+
 ## v2.0.7 （5 🈷️ 21 日 2025 年）
 
 - 修复表情在 `truncateStringWithChar` 造成的干扰
