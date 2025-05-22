@@ -1,5 +1,9 @@
 # 更新日志
 
+## v2.0.9 （5 🈷️ 22 日 2025 年）
+
+- 逻辑设计应该很重要吧。 `truncateStringWithChar` 支持自定义是否添加尾随的空格
+
 ## v2.0.8 （5 🈷️ 22 日 2025 年）
 
 - 现在 `truncateStringWithChar` 可截取含 ANSI 转义的字符串，且支持从后面截取

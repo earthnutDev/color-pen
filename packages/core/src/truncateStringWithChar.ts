@@ -9,10 +9,15 @@ import { strInTerminalLength } from './strInTerminalLength';
  *
  * @param str 需要截断长度的字符串
  * @param len 截断的长度
+ * @param [trailingSpace=true]  在最后一个符合的字符长度不为 1 ，导致需要添加空格时指定是否添加空格，默认添加
  *
  * @returns 返回原字符串或截断后的字符串
  */
-export function truncateStringWithChar(str: string, len: number) {
+export function truncateStringWithChar(
+  str: string,
+  len: number,
+  trailingSpace: boolean = true,
+) {
   /**  转化为常量让引擎优化  */
   const _len = len,
     _str = str;
@@ -60,7 +65,9 @@ export function truncateStringWithChar(str: string, len: number) {
     }
     // 该字符为占两个位置
     else if (resultLen === positiveLen + 1) {
-      needSpace = true;
+      if (trailingSpace) {
+        needSpace = true;
+      }
       break;
     } else if (resultLen > positiveLen + 1) {
       break;
