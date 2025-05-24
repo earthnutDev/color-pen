@@ -1,7 +1,7 @@
 {
   "name": "@color-pen/static",
   "type": "module",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "一点点 🤏 color-pen 的静态数据",
   "scripts": {
     "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
