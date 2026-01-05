@@ -52,7 +52,6 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-          always-auth: false # 强制使用 OIDC 命令
 
       - name: clean npm auth
         run: |

@@ -103,7 +103,7 @@ packageJson = {
   repository: {
     type: 'git',
     url: 'git+https://github.com/MrMudBean/color-pen.git',
-    directory: 'packages/static/value',
+    directory: 'packages/static-value',
   },
   publishConfig: {
     access: 'public',

@@ -19,11 +19,15 @@ const dependencies = packageJson.dependencies;
   'private',
   'dependencies',
 ].forEach(key => delete packageJson[key]);
+
 const esPrefix = 'es'; // es 前缀
 const cjsPrefix = 'cjs'; // cjs 前缀
 const dtsPrefix = 'es/src'; // 类型文件的前缀
 // 查看当前打包 dist 文件路径
 const distParentPath = getDirectoryBy('dist', 'directory');
+// <--  !!! -->
+// <--  !!! -->
+// <--  !!! -->
 // 查看当前的源码文件路径（原则上与上面值一致）
 const srcParentDirectory = getDirectoryBy('src', 'directory');
 // 当前 src 的路径
@@ -68,7 +72,7 @@ for (const childrenName of srcChildrenList) {
       types: `./${dtsPrefix}/${childrenBaseName}.d.ts`,
     };
   } else {
-    throw new Range(`${childrenName} 文件类型不符合要求`);
+    throw new RangeError(`${childrenName} 文件类型不符合要求`);
   }
 }
 
@@ -105,6 +109,7 @@ packageJson = {
   repository: {
     type: 'git',
     url: 'git+https://github.com/MrMudBean/color-pen.git',
+    directory: 'packages/core',
   },
   publishConfig: {
     access: 'public',
