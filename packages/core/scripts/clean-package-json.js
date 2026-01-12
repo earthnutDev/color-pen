@@ -2,7 +2,7 @@ import {
   pathJoin,
   readFileToJsonSync,
   getDirectoryBy,
-  writeJsonFile,
+  writeJsonFileSync,
   fileExist,
 } from 'a-node-tools';
 import { readdirSync } from 'node:fs';
@@ -132,5 +132,5 @@ packageJson = {
   // 整理打包后 package.json 文件路径
   const distPackagePath = pathJoin(distParentPath, './dist/package.json');
   // 写入新的 packages.json 文件
-  writeJsonFile(distPackagePath, packageJson);
+  writeJsonFileSync(distPackagePath, packageJson);
 }

@@ -6,5 +6,10 @@
     "**.d.ts",
     "packages/**/eg/**/*.ts"
   ],
-  "exclude": ["node_modules", "dist", "todo", "**/*.test.ts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "todo",
+    "**/*.test.ts"
+  ]
 }
